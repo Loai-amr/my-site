@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Loai Amr — Software Engineer</title>
+<meta name="description" content="Software Engineer specializing in frontend architecture, WordPress performance, and B2B eCommerce systems.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="scanline"></div>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">loai<span class="cursor">_</span></a>
+    <div class="nav-links">
+      <a href="#work">work</a>
+      <a href="#cases">case-studies</a>
+      <a href="#stack">stack</a>
+      <a href="#contact">contact</a>
+      <a href="Loai_Amr_CV_Senior.pdf" class="nav-cv" target="_blank">résumé.pdf</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="hero-inner">
+    <div class="hero-terminal">
+      <div class="term-bar">
+        <span class="term-dot red"></span><span class="term-dot yellow"></span><span class="term-dot green"></span>
+        <span class="term-title">~/loai-amr — zsh</span>
+      </div>
+      <div class="term-body">
+        <p><span class="prompt">$</span> whoami</p>
+        <p class="term-out">loai_amr — software engineer, frontend &amp; wordpress</p>
+        <p><span class="prompt">$</span> cat status.log</p>
+        <p class="term-out">4+ yrs shipping production interfaces for B2B eCommerce, healthcare, and marketing clients across CA / US / MENA</p>
+        <p><span class="prompt">$</span> uptime --focus</p>
+        <p class="term-out ok">leading a 6-dev team @ webelocity · building this site right now <span class="blink">▮</span></p>
+      </div>
+    </div>
+
+    <div class="hero-photo-wrap">
+      <img src="profile.jpg" alt="Loai Amr" class="hero-photo" loading="eager">
+      <div class="hero-photo-tag">Cairo, EG</div>
+    </div>
+  </div>
+
+  <div class="hero-headline">
+    <h1>I build interfaces that <span class="hl">don't make people wait.</span></h1>
+    <p class="hero-sub">Frontend architecture &amp; WordPress performance engineering. I've taken production sites from multi-second load times to sub-second, and I can tell you exactly what that was worth in dollars — not just PageSpeed points.</p>
+  </div>
+</header>
+
+<main>
+
+  <section class="section" id="cases">
+    <div class="section-label"><span class="tag">01</span> flagship case study</div>
+    <h2 class="section-title">The 2-second window</h2>
+    <p class="section-intro">Most performance work gets reported as a score. This is reported as revenue, because that's what the business owner actually cares about.</p>
+
+    <div class="case-card">
+      <div class="case-card-header">
+        <div>
+          <div class="case-client">Client: <strong>Syslo Ventures</strong> — full-service marketing &amp; production agency (sysloventures.com)</div>
+          <div class="case-role">Scope: WordPress/Elementor performance audit &amp; rebuild</div>
+        </div>
+        <a href="https://sysloventures.com" target="_blank" class="case-link">visit site →</a>
+      </div>
+
+      <div class="metric-terminal">
+        <div class="metric-row">
+          <span class="metric-label">BEFORE</span>
+          <div class="metric-bar-track"><div class="metric-bar-fill bad" style="width: 100%;"></div></div>
+          <span class="metric-value bad">16.0s</span>
+        </div>
+        <div class="metric-row">
+          <span class="metric-label">AFTER</span>
+          <div class="metric-bar-track"><div class="metric-bar-fill good" style="width: 7.5%;"></div></div>
+          <span class="metric-value good">1.2s</span>
+        </div>
+        <div class="metric-footnote">Full page load, homepage — measured via PageSpeed Insights / GTmetrix, mobile throttled connection</div>
+      </div>
+
+      <div class="case-breakdown">
+        <h3>What was actually fixed</h3>
+        <ul class="fix-list">
+          <li><strong>Image pipeline</strong> — unoptimized, uncompressed uploads served at full resolution regardless of display size, converted to compressed WebP with responsive sizing</li>
+          <li><strong>Render-blocking assets</strong> — CSS/JS loading synchronously in the head, deferred and minified so the page could paint before every script finished</li>
+          <li><strong>Caching layer</strong> — no page or browser caching configured, added full-page cache plus CDN edge caching</li>
+          <li><strong>Bloated plugin stack</strong> — redundant Elementor widgets and unused plugin scripts loading site-wide, trimmed to what pages actually use</li>
+        </ul>
+      </div>
+
+      <div class="why-it-matters">
+        <h3>Why 14.8 seconds is a revenue number, not a vanity metric</h3>
+        <p>Google's own mobile UX research puts bounce probability at roughly <strong>+90% when load time goes from 1s to 5s</strong>. A widely cited industry rule of thumb: a large share of visitors abandon a page that hasn't shown them anything useful within the first couple of seconds. Applying an <strong>80% drop-off at the 2-second mark</strong> — a number the business owner can sanity-check against their own analytics — to a site running at 16 seconds means the overwhelming majority of paid and organic traffic never saw the page at all.</p>
+
+        <div class="calc-terminal">
+          <p class="calc-title">// back-of-envelope, using the business's own numbers</p>
+          <p><span class="prompt">$</span> assume 1,000 monthly visits to the page, 80% leave by second 2</p>
+          <p class="term-out">→ at 16s load: ~800 of 1,000 visits bounce before the page is usable</p>
+          <p class="term-out">→ at 1.2s load: page is usable before that 2s threshold — those 800 visits become reachable</p>
+          <p><span class="prompt">$</span> if even a modest 3% of newly-reachable visitors convert to a lead</p>
+          <p class="term-out ok">→ ~24 additional leads/month that were previously invisible to the funnel entirely</p>
+          <p class="calc-caveat">// this is illustrative math based on a common industry bounce assumption, not a guaranteed outcome — actual lift depends on traffic quality, offer, and conversion path. I'd always validate against the client's real analytics before quoting a number like this to a business owner.</p>
+        </div>
+
+        <p>The point isn't the specific number. It's that a marketing agency spending money to drive traffic to a page was losing most of that traffic to load time before any of their actual marketing — the ads, the content, the offer — ever got a chance to work.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="work">
+    <div class="section-label"><span class="tag">02</span> selected work</div>
+    <h2 class="section-title">Projects, and what they were for</h2>
+
+    <div class="project-grid">
+
+      <article class="project-card">
+        <div class="project-tag">internal tool</div>
+        <h3>Toolswift — B2B Admin Dashboard</h3>
+        <p class="project-stack">React · TypeScript · Node.js</p>
+        <p>An internal admin tool used daily by a wholesale operations team, including a live area-selection map for defining delivery zones and shipping discount regions.</p>
+        <div class="project-detail">
+          <strong>The problem:</strong> the map tool ran on Google's DrawingManager library, which Google deprecated. Losing it would have broken zone selection with no warning.
+        </div>
+        <div class="project-detail">
+          <strong>What I did:</strong> independently planned and executed a full migration to Terra Draw, rebuilding both the delivery-zone and shipping-discount selection tools, testing for accuracy against the old implementation, and shipping to a dev environment before rollout.
+        </div>
+        <div class="use-case">
+          <span class="use-case-label">Business use case:</span> for any company running location-based logic on top of Google Maps, this is the exact playbook for migrating off a deprecated dependency without downtime or a user-facing regression.
+        </div>
+      </article>
+
+      <article class="project-card">
+        <div class="project-tag">b2b ecommerce</div>
+        <h3>Webelocity — B2B eCommerce CMS</h3>
+        <p class="project-stack">Next.js · TypeScript · NestJS</p>
+        <p>A purpose-built B2B eCommerce CMS powering wholesale operations for lumber suppliers, distributors, and healthcare retailers across Canada and the US — supporting 20+ live storefronts.</p>
+        <div class="project-detail">
+          <strong>My role:</strong> coordinate a team of 6 developers, own frontend architecture, and integrate payment gateways, zone-based shipping (Shippo, ShipStation), and ERP connections into one platform.
+        </div>
+        <div class="use-case">
+          <span class="use-case-label">Business use case:</span> distributors running dozens of storefronts on fragmented systems get one platform where merchant admin tools and customer-facing storefronts share the same core, instead of paying to maintain 20 different one-off builds.
+        </div>
+      </article>
+
+      <article class="project-card">
+        <div class="project-tag">wordpress · elementor</div>
+        <h3>Kodiak Fitness Center — Multi-Location Site</h3>
+        <p class="project-stack">WordPress · Elementor Pro</p>
+        <p>Full site build for a multi-location gym brand (Sunny Isles Beach, Buenos Aires, Coral Springs), including a pre-sell landing page for founding memberships ahead of a new location's launch.</p>
+        <div class="project-detail">
+          <strong>What I did:</strong> built About, Amenities, Membership, and Contact pages plus a dedicated pre-launch membership funnel, configured Theme Builder templates for consistent header/footer, and set up technical SEO (robots.txt, sitemaps via Yoast).
+        </div>
+        <div class="use-case">
+          <span class="use-case-label">Business use case:</span> a new gym location generated pre-sale interest and founding-member signups before its doors opened, turning "coming soon" into a working lead funnel instead of a placeholder page.
+        </div>
+      </article>
+
+      <article class="project-card">
+        <div class="project-tag">wordpress · elementor</div>
+        <h3>Phil &amp; Lee's Homes</h3>
+        <p class="project-stack">WordPress · Elementor</p>
+        <p>Website work for a home builder serving Michigan's Upper Peninsula and Northeast Wisconsin, including conversion-focused page design matched precisely to an existing brand system.</p>
+        <div class="project-detail">
+          <strong>What I did:</strong> built and refined pages including a post-contact-form "Thank You" flow, working strictly within the client's established color and type system rather than introducing a new visual language.
+        </div>
+        <div class="use-case">
+          <span class="use-case-label">Business use case:</span> a homebuilder's contact funnel doesn't end at form submission — the follow-up page keeps the visitor moving toward floor plans, model homes, or the next step instead of dead-ending at a generic confirmation message.
+        </div>
+      </article>
+
+      <article class="project-card">
+        <div class="project-tag">wordpress · performance</div>
+        <h3>Syslo Ventures — Agency Site &amp; Landing Pages</h3>
+        <p class="project-stack">WordPress · Elementor</p>
+        <p>Development work for a full-service marketing agency's own site and campaign landing pages, including the flagship performance rebuild covered above.</p>
+        <div class="project-detail">
+          <strong>What I did:</strong> speed audit and rebuild (16s → 1.2s), plus Elementor page builds for service and campaign landing pages via direct REST API / editor workflows.
+        </div>
+        <div class="use-case">
+          <span class="use-case-label">Business use case:</span> an agency that sells performance and lead generation to its own clients can't afford a slow site itself — this closed that gap.
+        </div>
+      </article>
+
+      <article class="project-card">
+        <div class="project-tag">freelance · scale</div>
+        <h3>Upwork &amp; Mostaql Freelance Practice</h3>
+        <p class="project-stack">JavaScript · WordPress</p>
+        <p>Independent client delivery across North America and the Middle East, spanning custom JavaScript builds, WordPress theme customization, and full project lifecycles.</p>
+        <div class="project-detail">
+          <strong>Track record:</strong> 50+ completed projects on Upwork, 24+ WordPress sites built independently through Mostaql, consistently repeat business.
+        </div>
+        <div class="use-case">
+          <span class="use-case-label">Business use case:</span> small businesses and solo founders who need one person who can scope, build, test, and ship a site end to end without a project manager in between.
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <section class="section" id="stack">
+    <div class="section-label"><span class="tag">03</span> stack</div>
+    <h2 class="section-title">Tools I actually ship with</h2>
+    <div class="stack-grid">
+      <div class="stack-col">
+        <h4>Frontend</h4>
+        <p>React · Next.js · TypeScript · Redux Toolkit · React Query · Tailwind CSS · SCSS</p>
+      </div>
+      <div class="stack-col">
+        <h4>Backend</h4>
+        <p>Node.js · NestJS · Express.js · REST APIs</p>
+      </div>
+      <div class="stack-col">
+        <h4>CMS / eCommerce</h4>
+        <p>WordPress · Elementor · WooCommerce · Headless WordPress · Shopify · Webflow</p>
+      </div>
+      <div class="stack-col">
+        <h4>Infra</h4>
+        <p>AWS · Vercel · Cloudflare · MongoDB · MySQL · Firebase</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section contact-section" id="contact">
+    <div class="section-label"><span class="tag">04</span> get in touch</div>
+    <h2 class="section-title">Have a slow site, or a system to build?</h2>
+    <p class="section-intro">If it's frontend architecture, a WordPress site that's bleeding leads to load time, or a B2B platform that needs to scale past a spreadsheet — that's the work I do.</p>
+    <div class="contact-links">
+      <a href="mailto:loaiamr@gmail.com" class="contact-btn primary">loaiamr@gmail.com</a>
+      <a href="https://linkedin.com/in/loai-amrr" target="_blank" class="contact-btn">linkedin</a>
+      <a href="https://github.com/Loai-amr" target="_blank" class="contact-btn">github</a>
+      <a href="Loai_Amr_CV_Senior.pdf" target="_blank" class="contact-btn">résumé.pdf</a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <p>Built and deployed by Loai Amr · Cairo, Egypt</p>
+</footer>
+
+</body>
+</html>
