@@ -1,45 +1,33 @@
 # Loai Amr — Portfolio
 
-A single-page portfolio site, built as static HTML/CSS (no build step, no dependencies) so it deploys straight to GitHub Pages for free.
+A frontend-focused portfolio site built with Next.js (App Router), TypeScript, and Tailwind CSS.
 
 ## What's in here
 
-- `index.html` — the whole site
-- `style.css` — all styling
-- `profile.jpg` — your headshot, compressed for fast load (58KB, down from 1.7MB)
-- `Loai_Amr_CV_Senior.pdf` — linked from the nav and contact section
+- `app/` — routes: `/` (frontend work — experience, stack, contact) and `/other-work` (Shopify & WordPress work)
+- `components/` — Nav, Hero, ExperienceSection, StackSection, ContactSection, ProjectCard, ServiceCard, CaseStudy, Footer
+- `lib/content.ts` — all copy (experience, stack, projects, services) in one place — edit this file to update content
+- `public/` — headshot, favicons, résumé PDFs
 
-## Deploy to GitHub Pages (free)
+## Local development
 
-1. **Create a new repo on GitHub.**
-   - Go to github.com/Loai-amr → New repository
-   - Name it either:
-     - `loai-amr.github.io` → this makes your site live at `https://loai-amr.github.io` (root domain, cleanest option)
-     - or any other name like `portfolio` → site will live at `https://loai-amr.github.io/portfolio`
-   - Public repo, no need to initialize with a README (you already have one)
+```bash
+npm install
+npm run dev
+```
 
-2. **Push these files to the repo.** From this folder:
-   ```bash
-   git init
-   git add .
-   git commit -m "Initial portfolio"
-   git branch -M main
-   git remote add origin https://github.com/Loai-amr/loai-amr.github.io.git
-   git push -u origin main
-   ```
-   (swap the URL for whatever repo name you chose)
+Open [http://localhost:3000](http://localhost:3000).
 
-3. **Turn on GitHub Pages.**
-   - In the repo: Settings → Pages
-   - Under "Build and deployment" → Source: **Deploy from a branch**
-   - Branch: `main`, folder: `/ (root)` → Save
+## Deploy to Vercel
 
-4. **Wait ~1-2 minutes.** GitHub will give you a live URL at the top of that same Pages settings screen once it's built.
-
-That's it — no server, no cost, no build pipeline. Any time you want to update content, edit `index.html` directly and push again; the live site updates automatically within a minute or two.
+1. Push this repo to GitHub (already done: `github.com/Loai-amr/my-site`).
+2. Go to [vercel.com/new](https://vercel.com/new), import the repo.
+3. Framework preset auto-detects as Next.js — no config needed. Deploy.
+4. Every push to `main` redeploys automatically; PRs get preview URLs.
 
 ## Making changes later
 
-- All copy lives directly in `index.html` — project descriptions, the case study numbers, contact links.
-- Colors and fonts are CSS variables at the top of `style.css` (`:root`) if you want to retheme later.
-- To swap the headshot, replace `profile.jpg` (keep it compressed — under ~150KB ideally) and keep the filename, or update the `src` in `index.html`.
+- Copy (experience, skills, projects) lives in `lib/content.ts`.
+- Colors and design tokens are CSS variables at the top of `app/globals.css` (`:root`).
+- To swap the headshot, replace `public/profile.jpg` and keep the filename.
+- To update the résumé, replace `public/Loai_Amr_Frontend_Developer.pdf` and keep the filename, or update `resumeHref` in `lib/content.ts`.

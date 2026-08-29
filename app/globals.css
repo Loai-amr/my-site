@@ -1,0 +1,120 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #ffffff;
+  --bg-raised: #f8fafc;
+  --bg-card: #ffffff;
+  --border: #e2e8f0;
+  --border-hover: #cbd5e1;
+  --text: #0f172a;
+  --text-muted: #475569;
+  --text-dim: #94a3b8;
+  --accent-green: #16a34a;
+  --accent-blue: #2563eb;
+  --accent-red: #dc2626;
+  --accent-yellow: #d97706;
+  --shopify: #5c8a1f;
+  --wp: #2563eb;
+  --radius: 10px;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-bg-raised: var(--bg-raised);
+  --color-bg-card: var(--bg-card);
+  --color-border: var(--border);
+  --color-border-hover: var(--border-hover);
+  --color-text: var(--text);
+  --color-text-muted: var(--text-muted);
+  --color-text-dim: var(--text-dim);
+  --color-accent-green: var(--accent-green);
+  --color-accent-blue: var(--accent-blue);
+  --color-accent-red: var(--accent-red);
+  --color-accent-yellow: var(--accent-yellow);
+  --color-shopify: var(--shopify);
+  --color-wp: var(--wp);
+  --font-sans: var(--font-inter);
+  --font-mono: var(--font-jetbrains);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@layer base {
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-sans);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a {
+    color: var(--accent-blue);
+    text-decoration: none;
+  }
+}
+
+@layer components {
+  .kw-pill {
+    @apply inline-flex items-center rounded-full border border-[var(--border)] bg-[var(--bg-raised)] px-3 py-1.5 font-mono text-[13px] text-[var(--text-muted)];
+  }
+
+  .card {
+    @apply rounded-[var(--radius)] border border-[var(--border)] bg-[var(--bg-card)] shadow-sm transition-colors hover:border-[var(--border-hover)] hover:shadow-md;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center gap-2 rounded-[var(--radius)] px-5 py-3 text-sm font-semibold text-white transition-colors bg-[var(--accent-blue)] hover:bg-[var(--accent-blue)]/90;
+  }
+  .btn-ghost {
+    @apply inline-flex items-center gap-2 rounded-[var(--radius)] border border-[var(--border)] px-5 py-3 text-sm font-semibold text-[var(--text)] transition-colors hover:border-[var(--border-hover)] hover:bg-[var(--bg-raised)];
+  }
+
+  .eyebrow {
+    @apply font-mono text-[13px] font-medium tracking-wide text-[var(--accent-blue)];
+  }
+
+  .metric-bar-track {
+    @apply h-2 flex-1 overflow-hidden rounded-full bg-[var(--bg-raised)];
+  }
+  .metric-bar-fill {
+    @apply h-full rounded-full;
+  }
+  .metric-bar-fill.bad {
+    background: var(--accent-red);
+  }
+  .metric-bar-fill.good {
+    background: var(--accent-green);
+  }
+
+  .calc-terminal {
+    @apply rounded-[var(--radius)] border border-[var(--border)] bg-[var(--bg-raised)] p-5 font-mono text-[13px] leading-relaxed text-[var(--text-muted)];
+  }
+  .calc-terminal .prompt {
+    color: var(--accent-blue);
+  }
+  .calc-terminal .term-out {
+    color: var(--text);
+    padding-left: 1.2em;
+  }
+  .calc-terminal .term-out.ok {
+    color: var(--accent-green);
+  }
+}
