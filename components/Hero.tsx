@@ -16,7 +16,7 @@ export default function Hero() {
               className="h-full w-full object-cover"
             />
           </div>
-          <div className="flex items-center gap-2 rounded-full border border-[var(--border)] bg-[var(--bg-raised)] px-3 py-1.5 font-mono text-[13px] text-[var(--text-muted)]">
+          <div className="flex items-center gap-2 rounded-full border border-[var(--border)] bg-[var(--bg-raised)] px-3 py-1.5 text-[13px] font-medium text-[var(--text-muted)]">
             <span className="h-2 w-2 rounded-full bg-[var(--accent-green)]" />
             {profile.location} · open to new roles
           </div>

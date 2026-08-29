@@ -8,7 +8,7 @@ export default function Nav() {
         <Link href="/" className="font-mono text-lg font-semibold text-[var(--text)]">
           loai<span className="text-[var(--accent-blue)]">_</span>
         </Link>
-        <div className="flex items-center gap-5 font-mono text-sm text-[var(--text-muted)]">
+        <div className="flex items-center gap-5 text-sm font-medium text-[var(--text-muted)]">
           <Link href="/#work" className="hidden hover:text-[var(--text)] sm:inline">
             work
           </Link>
@@ -18,7 +18,7 @@ export default function Nav() {
           <Link href="/#contact" className="hidden hover:text-[var(--text)] sm:inline">
             contact
           </Link>
-          <Link href="/other-work" className="hidden hover:text-[var(--accent-blue)] md:inline">
+          <Link href="/shopify-and-wordpress" className="hidden hover:text-[var(--accent-blue)] md:inline">
             shopify &amp; wordpress work →
           </Link>
           <a

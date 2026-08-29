@@ -4,7 +4,7 @@ A frontend-focused portfolio site built with Next.js (App Router), TypeScript, a
 
 ## What's in here
 
-- `app/` — routes: `/` (frontend work — experience, stack, contact) and `/other-work` (Shopify & WordPress work)
+- `app/` — routes: `/` (frontend work — experience, stack, contact) and `/shopify-and-wordpress` (Shopify & WordPress work)
 - `components/` — Nav, Hero, ExperienceSection, StackSection, ContactSection, ProjectCard, ServiceCard, CaseStudy, Footer
 - `lib/content.ts` — all copy (experience, stack, projects, services) in one place — edit this file to update content
 - `public/` — headshot, favicons, résumé PDFs
@@ -24,6 +24,7 @@ Open [http://localhost:3000](http://localhost:3000).
 2. Go to [vercel.com/new](https://vercel.com/new), import the repo.
 3. Framework preset auto-detects as Next.js — no config needed. Deploy.
 4. Every push to `main` redeploys automatically; PRs get preview URLs.
+5. Once you know your real domain (e.g. `my-site.vercel.app` or a custom domain), set the `NEXT_PUBLIC_SITE_URL` environment variable in Vercel project settings to `https://<your-domain>`. This is used for SEO metadata (canonical URLs, Open Graph image links) — until it's set, it falls back to a placeholder.
 
 ## Making changes later
 

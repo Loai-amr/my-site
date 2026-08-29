@@ -5,17 +5,50 @@ import ProjectCard from "@/components/ProjectCard";
 import CaseStudy from "@/components/CaseStudy";
 import { otherWorkServices, otherWorkProjects, profile } from "@/lib/content";
 
+const title = "Shopify & WordPress Development";
+const ogTitle = "Shopify & WordPress Development — Loai Amr";
+const description =
+  "eCommerce and CMS work: Shopify theme development, WordPress/Elementor builds, WooCommerce stores, and site performance rebuilds (16s → 1.2s case study).";
+const keywords = [
+  "Loai Amr",
+  "Shopify Developer",
+  "WordPress Developer",
+  "Elementor Developer",
+  "WooCommerce",
+  "Shopify Theme Development",
+  "Liquid",
+  "Headless WordPress",
+  "Site Performance Optimization",
+];
+
 export const metadata: Metadata = {
-  title: "Shopify & WordPress Work — Loai Amr",
-  description:
-    "eCommerce and CMS work: Shopify theme development, WordPress/Elementor builds, and site performance rebuilds.",
+  title,
+  description,
+  keywords,
+  alternates: { canonical: "/shopify-and-wordpress" },
+  openGraph: {
+    title: ogTitle,
+    description,
+    type: "website",
+    url: "/shopify-and-wordpress",
+    siteName: "Loai Amr — Frontend Developer",
+    images: [
+      { url: "/shopify-and-wordpress/opengraph-image", width: 1200, height: 630, alt: ogTitle },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: ogTitle,
+    description,
+    images: ["/shopify-and-wordpress/opengraph-image"],
+  },
 };
 
-export default function OtherWork() {
+export default function ShopifyAndWordPress() {
   return (
     <main>
       <div className="mx-auto max-w-[1080px] px-6 pt-12">
-        <Link href="/" className="font-mono text-sm text-[var(--accent-blue)]">
+        <Link href="/" className="text-sm font-medium text-[var(--accent-blue)]">
           ← back to frontend work
         </Link>
       </div>

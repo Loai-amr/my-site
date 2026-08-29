@@ -3,7 +3,7 @@ import type { Service } from "@/lib/content";
 export default function ServiceCard({ service }: { service: Service }) {
   return (
     <div className="card p-6">
-      <div className="flex h-10 w-10 items-center justify-center rounded-lg border border-[var(--border)] font-mono text-sm font-bold text-[var(--text)]">
+      <div className="flex h-10 w-10 items-center justify-center rounded-lg border border-[var(--border)] text-sm font-bold text-[var(--text)]">
         {service.icon}
       </div>
       <h3 className="mt-4 text-lg font-semibold">{service.title}</h3>

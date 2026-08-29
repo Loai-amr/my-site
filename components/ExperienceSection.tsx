@@ -15,7 +15,7 @@ export default function ExperienceSection() {
               <h3 className="text-xl font-semibold">{role.role}</h3>
               <span className="font-mono text-[13px] text-[var(--text-dim)]">{role.period}</span>
             </div>
-            <p className="mt-1 font-mono text-[13px] text-[var(--accent-blue)]">
+            <p className="mt-1 text-[13px] font-medium text-[var(--accent-blue)]">
               {role.org} <span className="text-[var(--text-dim)]">· {role.location}</span>
             </p>
             <p className="mt-4 text-[15px] text-[var(--text-muted)]">{role.summary}</p>

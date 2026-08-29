@@ -19,7 +19,7 @@ export default function StackSection() {
                   : "border-[var(--border)] bg-[var(--bg-card)]"
               }`}
             >
-              <h4 className="font-mono text-sm font-semibold text-[var(--text)]">{col.label}</h4>
+              <h4 className="text-sm font-semibold text-[var(--text)]">{col.label}</h4>
               <p className="mt-2 text-sm text-[var(--text-muted)]">{col.items.join(" · ")}</p>
             </div>
           ))}
@@ -33,7 +33,7 @@ export default function StackSection() {
                 <span className="text-sm text-[var(--text)]">
                   {e.title} <span className="text-[var(--text-dim)]">— {e.org}</span>
                 </span>
-                <span className="font-mono text-[13px] text-[var(--text-dim)]">{e.period}</span>
+                <span className="text-[13px] text-[var(--text-dim)]">{e.period}</span>
               </div>
             ))}
           </div>

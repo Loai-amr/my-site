@@ -4,8 +4,8 @@ export default function CaseStudy() {
   return (
     <div className="card p-6 md:p-8">
       <div className="flex flex-wrap items-center justify-between gap-3">
-        <p className="font-mono text-sm text-[var(--text-muted)]">
-          <span className="text-[var(--text)]">{caseStudy.client}</span>
+        <p className="text-sm text-[var(--text-muted)]">
+          <span className="font-semibold text-[var(--text)]">{caseStudy.client}</span>
           <span className="mx-2 text-[var(--text-dim)]">·</span>
           {caseStudy.role}
         </p>
@@ -13,7 +13,7 @@ export default function CaseStudy() {
           href={caseStudy.url}
           target="_blank"
           rel="noopener noreferrer"
-          className="font-mono text-sm text-[var(--accent-blue)]"
+          className="text-sm font-medium text-[var(--accent-blue)]"
         >
           visit site →
         </a>
@@ -38,7 +38,7 @@ export default function CaseStudy() {
             {caseStudy.after}
           </span>
         </div>
-        <p className="font-mono text-[12px] text-[var(--text-dim)]">{caseStudy.footnote}</p>
+        <p className="text-[12px] text-[var(--text-dim)]">{caseStudy.footnote}</p>
       </div>
 
       <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
@@ -54,7 +54,7 @@ export default function CaseStudy() {
       </div>
 
       <details className="mt-6 rounded-[var(--radius)] border border-[var(--border)] p-4">
-        <summary className="cursor-pointer font-mono text-sm text-[var(--text)]">
+        <summary className="cursor-pointer text-sm font-medium text-[var(--text)]">
           Why this is a revenue number, not a vanity metric
         </summary>
         <div className="mt-4 text-sm text-[var(--text-muted)]">

@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import { Inter, JetBrains_Mono } from "next/font/google";
+import { Plus_Jakarta_Sans, JetBrains_Mono } from "next/font/google";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import "./globals.css";
 
-const inter = Inter({
-  variable: "--font-inter",
+const jakarta = Plus_Jakarta_Sans({
+  variable: "--font-jakarta",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700", "800"],
 });
@@ -13,13 +13,48 @@ const inter = Inter({
 const jetbrainsMono = JetBrains_Mono({
   variable: "--font-jetbrains",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
+  weight: ["400", "500", "600", "700"],
 });
 
+const title = "Loai Amr — Senior Frontend Developer (React & Next.js)";
+const description =
+  "Senior Frontend Developer with 4+ years building responsive, high-performance web applications with React, Next.js, and TypeScript. Based in Cairo, Egypt.";
+const keywords = [
+  "Loai Amr",
+  "Frontend Developer",
+  "React Developer",
+  "Next.js Developer",
+  "TypeScript",
+  "React.js",
+  "Redux Toolkit",
+  "Frontend Engineer Cairo",
+  "Webelocity",
+];
+
 export const metadata: Metadata = {
-  title: "Loai Amr — Senior Frontend Developer (React & Next.js)",
-  description:
-    "Senior Frontend Developer with 4+ years building responsive, high-performance web applications with React, Next.js, and TypeScript.",
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://loai-amr.vercel.app"),
+  title: {
+    default: title,
+    template: "%s · Loai Amr",
+  },
+  description,
+  keywords,
+  authors: [{ name: "Loai Amr", url: "https://github.com/Loai-amr" }],
+  creator: "Loai Amr",
+  openGraph: {
+    title,
+    description,
+    type: "website",
+    url: "/",
+    siteName: "Loai Amr — Frontend Developer",
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: title }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title,
+    description,
+    images: ["/opengraph-image"],
+  },
   icons: {
     icon: [
       { url: "/favicon.ico" },
@@ -38,7 +73,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} ${jetbrainsMono.variable} antialiased`}>
+      <body className={`${jakarta.variable} ${jetbrainsMono.variable} antialiased`}>
         <Nav />
         {children}
         <Footer />
