@@ -65,7 +65,7 @@ export default function CaseStudy() {
             most traffic never saw the page at all.
           </p>
           <div className="calc-terminal mt-4">
-            <p className="text-[var(--text-dim)]">// back-of-envelope, using the business&apos;s own numbers</p>
+            <p className="text-[var(--text-dim)]">{"// back-of-envelope, using the business's own numbers"}</p>
             <p>
               <span className="prompt">$</span> 1,000 monthly visits, 80% leave by second 2
             </p>
@@ -76,8 +76,9 @@ export default function CaseStudy() {
             </p>
             <p className="term-out ok">→ ~24 additional leads/month, previously invisible to the funnel</p>
             <p className="mt-2 text-[var(--text-dim)]">
-              // illustrative math based on a common industry bounce assumption — always validate
-              against real analytics before quoting this to a client.
+              {
+                "// illustrative math based on a common industry bounce assumption — always validate against real analytics before quoting this to a client."
+              }
             </p>
           </div>
         </div>

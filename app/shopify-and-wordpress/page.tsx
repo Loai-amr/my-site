@@ -8,7 +8,7 @@ import { otherWorkServices, otherWorkProjects, profile } from "@/lib/content";
 const title = "Shopify & WordPress Development";
 const ogTitle = "Shopify & WordPress Development — Loai Amr";
 const description =
-  "eCommerce and CMS work: Shopify theme development, WordPress/Elementor builds, WooCommerce stores, and site performance rebuilds (16s → 1.2s case study).";
+  "Shopify theme development, WordPress/Elementor builds, WooCommerce stores, and performance rebuilds — 16s to 1.2s load time.";
 const keywords = [
   "Loai Amr",
   "Shopify Developer",

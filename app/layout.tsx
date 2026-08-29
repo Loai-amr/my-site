@@ -16,9 +16,19 @@ const jetbrainsMono = JetBrains_Mono({
   weight: ["400", "500", "600", "700"],
 });
 
+// Resolves to the real deployment URL automatically (Vercel sets these env vars),
+// so Open Graph image/canonical links never point at a guessed domain that 404s.
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL ??
+  (process.env.VERCEL_PROJECT_PRODUCTION_URL
+    ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+    : process.env.VERCEL_URL
+      ? `https://${process.env.VERCEL_URL}`
+      : "http://localhost:3000");
+
 const title = "Loai Amr — Senior Frontend Developer (React & Next.js)";
 const description =
-  "Senior Frontend Developer with 4+ years building responsive, high-performance web applications with React, Next.js, and TypeScript. Based in Cairo, Egypt.";
+  "Senior Frontend Developer building fast, responsive web apps with React, Next.js & TypeScript. Based in Cairo, Egypt.";
 const keywords = [
   "Loai Amr",
   "Frontend Developer",
@@ -32,7 +42,7 @@ const keywords = [
 ];
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://loai-amr.vercel.app"),
+  metadataBase: new URL(siteUrl),
   title: {
     default: title,
     template: "%s · Loai Amr",
