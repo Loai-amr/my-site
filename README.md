@@ -24,7 +24,7 @@ Open [http://localhost:3000](http://localhost:3000).
 2. Go to [vercel.com/new](https://vercel.com/new), import the repo.
 3. Framework preset auto-detects as Next.js — no config needed. Deploy.
 4. Every push to `main` redeploys automatically; PRs get preview URLs.
-5. Once you know your real domain (e.g. `my-site.vercel.app` or a custom domain), set the `NEXT_PUBLIC_SITE_URL` environment variable in Vercel project settings to `https://<your-domain>`. This is used for SEO metadata (canonical URLs, Open Graph image links) — until it's set, it falls back to a placeholder.
+5. SEO metadata (canonical URLs, Open Graph image links) resolves automatically to whatever domain Vercel deploys to — no setup needed. If you attach a custom domain later, set the `NEXT_PUBLIC_SITE_URL` environment variable in Vercel project settings to `https://<your-domain>` so metadata points at that instead.
 
 ## Making changes later
 
