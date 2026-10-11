@@ -4,7 +4,7 @@ A frontend-focused portfolio site built with Next.js (App Router), TypeScript, a
 
 ## What's in here
 
-- `app/` — routes: `/` (frontend work — experience, stack, contact) and `/shopify-and-wordpress` (Shopify & WordPress work)
+- `app/` — routes: `/` (frontend work — experience, stack, contact), `/shopify-and-wordpress` (Shopify & WordPress work) and `/free-apps` (free apps showcase; add apps to `freeApps` in `lib/content.ts`, screenshots in `public/apps/<slug>/`)
 - `components/` — Nav, Hero, ExperienceSection, StackSection, ContactSection, ProjectCard, ServiceCard, CaseStudy, Footer
 - `lib/content.ts` — all copy (experience, stack, projects, services) in one place — edit this file to update content
 - `public/` — headshot, favicons, résumé PDFs

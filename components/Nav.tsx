@@ -21,6 +21,12 @@ export default function Nav() {
           <Link href="/shopify-and-wordpress" className="hidden hover:text-[var(--accent-blue)] md:inline">
             shopify &amp; wordpress work →
           </Link>
+          <Link href="/free-apps" className="hover:text-[var(--text)]">
+            free apps
+          </Link>
+          <a href="https://shop.loaiamr.com" className="text-[var(--accent-blue)] hover:text-[var(--text)]">
+            shop ↗&#xFE0E;
+          </a>
           <a
             href={profile.resumeHref}
             target="_blank"

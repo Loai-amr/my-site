@@ -190,3 +190,41 @@ export const caseStudy = {
     { num: "04", title: "Plugin bloat", desc: "Site-wide scripts → trimmed to what each page uses" },
   ],
 };
+
+export type FreeApp = {
+  slug: string;
+  name: string;
+  tagline: string;
+  description: string;
+  url: string;
+  source?: string;
+  tags: string[];
+  features: string[];
+  // Phone screenshots (1170×2532). The middle one is shown in front.
+  screenshots: { src: string; alt: string }[];
+};
+
+export const freeApps: FreeApp[] = [
+  {
+    slug: "goals-tracker",
+    name: "Goals Tracker",
+    tagline: "Save toward anything, one deposit at a time.",
+    description:
+      "Set a goal, log deposits and withdrawals, and watch the bar fill up. It installs on your phone like a native app, works fully offline, and keeps every number on your device: no account, no ads, no server.",
+    url: "https://mygoalstracking.loaiamr.com/",
+    source: "https://github.com/Loai-amr/Personal-savings-tracker-PWA",
+    tags: ["PWA", "Works offline", "No sign-up", "Vanilla JS"],
+    features: [
+      "EGP, USD, EUR or SAR goals",
+      "Deposits & withdrawals with notes and dates",
+      "Numbers-only mode: hide history and buttons",
+      "Export / import your data as a backup",
+      "Add to Home Screen on iPhone or Android",
+    ],
+    screenshots: [
+      { src: "/apps/goals-tracker/goals-add.webp", alt: "Goals Tracker: adding a deposit" },
+      { src: "/apps/goals-tracker/goals-main.webp", alt: "Goals Tracker: an emergency fund at 68% with deposit history" },
+      { src: "/apps/goals-tracker/goals-minimal.webp", alt: "Goals Tracker: numbers-only view" },
+    ],
+  },
+];
