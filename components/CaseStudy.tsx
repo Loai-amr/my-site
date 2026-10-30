@@ -1,6 +1,10 @@
-import { caseStudy } from "@/lib/content";
+import { getContent } from "@/lib/content";
+import { getDict } from "@/lib/i18n";
 
-export default function CaseStudy() {
+export default async function CaseStudy() {
+  const { lang, t } = await getDict();
+  const { caseStudy } = getContent(lang);
+  const term = caseStudy.terminal;
   return (
     <div className="card p-6 md:p-8">
       <div className="flex flex-wrap items-center justify-between gap-3">
@@ -15,26 +19,26 @@ export default function CaseStudy() {
           rel="noopener noreferrer"
           className="text-sm font-medium text-[var(--accent-blue)]"
         >
-          visit site →
+          {t.caseStudy.visit}
         </a>
       </div>
 
       <div className="mt-6 flex flex-col gap-3 rounded-[var(--radius)] border border-[var(--border)] bg-[var(--bg-raised)] p-5">
         <div className="flex items-center gap-4">
-          <span className="w-16 font-mono text-[13px] text-[var(--text-dim)]">BEFORE</span>
+          <span className="w-16 font-mono text-[13px] text-[var(--text-dim)]">{t.caseStudy.before}</span>
           <div className="metric-bar-track">
             <div className="metric-bar-fill bad" style={{ width: "100%" }} />
           </div>
-          <span className="w-14 text-right font-mono text-sm font-semibold text-[var(--accent-red)]">
+          <span className="w-16 text-end font-mono text-sm font-semibold text-[var(--accent-red)]">
             {caseStudy.before}
           </span>
         </div>
         <div className="flex items-center gap-4">
-          <span className="w-16 font-mono text-[13px] text-[var(--text-dim)]">AFTER</span>
+          <span className="w-16 font-mono text-[13px] text-[var(--text-dim)]">{t.caseStudy.after}</span>
           <div className="metric-bar-track">
             <div className="metric-bar-fill good" style={{ width: "7.5%" }} />
           </div>
-          <span className="w-14 text-right font-mono text-sm font-semibold text-[var(--accent-green)]">
+          <span className="w-16 text-end font-mono text-sm font-semibold text-[var(--accent-green)]">
             {caseStudy.after}
           </span>
         </div>
@@ -55,31 +59,26 @@ export default function CaseStudy() {
 
       <details className="mt-6 rounded-[var(--radius)] border border-[var(--border)] p-4">
         <summary className="cursor-pointer text-sm font-medium text-[var(--text)]">
-          Why this is a revenue number, not a vanity metric
+          {t.caseStudy.whyTitle}
         </summary>
         <div className="mt-4 text-sm text-[var(--text-muted)]">
           <p>
-            Google&apos;s mobile UX research puts bounce probability at roughly{" "}
-            <strong className="text-[var(--text)]">+90% when load time goes from 1s to 5s</strong>.
-            Applying an 80% drop-off at the 2-second mark to a site running at 16 seconds means
-            most traffic never saw the page at all.
+            {t.caseStudy.whyA}
+            <strong className="text-[var(--text)]">{t.caseStudy.whyStrong}</strong>
+            {t.caseStudy.whyB}
           </p>
           <div className="calc-terminal mt-4">
-            <p className="text-[var(--text-dim)]">{"// back-of-envelope, using the business's own numbers"}</p>
+            <p className="text-[var(--text-dim)]">{term.comment}</p>
             <p>
-              <span className="prompt">$</span> 1,000 monthly visits, 80% leave by second 2
+              <span className="prompt">$</span> {term.visits}
             </p>
-            <p className="term-out">→ at 16s: ~800 of 1,000 visits bounce before the page is usable</p>
-            <p className="term-out">→ at 1.2s: those 800 visits become reachable</p>
+            <p className="term-out">{term.at16}</p>
+            <p className="term-out">{term.at12}</p>
             <p>
-              <span className="prompt">$</span> even a modest 3% conversion on the newly-reachable traffic
+              <span className="prompt">$</span> {term.conversion}
             </p>
-            <p className="term-out ok">→ ~24 additional leads/month, previously invisible to the funnel</p>
-            <p className="mt-2 text-[var(--text-dim)]">
-              {
-                "// illustrative math based on a common industry bounce assumption — always validate against real analytics before quoting this to a client."
-              }
-            </p>
+            <p className="term-out ok">{term.leads}</p>
+            <p className="mt-2 text-[var(--text-dim)]">{term.disclaimer}</p>
           </div>
         </div>
       </details>

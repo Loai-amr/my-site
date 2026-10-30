@@ -1,11 +1,14 @@
-import { experience } from "@/lib/content";
+import { getContent } from "@/lib/content";
+import { getDict } from "@/lib/i18n";
 
-export default function ExperienceSection() {
+export default async function ExperienceSection() {
+  const { lang, t } = await getDict();
+  const { experience } = getContent(lang);
   return (
     <section id="work" className="mx-auto max-w-[1080px] px-6 py-20">
       <div className="mb-10">
-        <p className="eyebrow">Experience</p>
-        <h2 className="mt-2 text-3xl font-bold tracking-tight">Where I&apos;ve shipped React &amp; Next.js.</h2>
+        <p className="eyebrow">{t.experience.eyebrow}</p>
+        <h2 className="mt-2 text-3xl font-bold tracking-tight">{t.experience.title}</h2>
       </div>
 
       <div className="flex flex-col gap-6">
@@ -23,7 +26,7 @@ export default function ExperienceSection() {
               <ul className="mt-4 grid grid-cols-1 gap-x-6 gap-y-2 md:grid-cols-2">
                 {role.highlights.map((h) => (
                   <li key={h} className="flex gap-2 text-sm text-[var(--text-muted)]">
-                    <span className="mt-[2px] text-[var(--accent-green)]">▸</span>
+                    <span className="mt-[2px] text-[var(--accent-green)] rtl:-scale-x-100">▸</span>
                     {h}
                   </li>
                 ))}

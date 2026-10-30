@@ -1,17 +1,15 @@
-import { profile } from "@/lib/content";
+import { getContent } from "@/lib/content";
+import { getDict } from "@/lib/i18n";
 
-export default function ContactSection() {
+export default async function ContactSection() {
+  const { lang, t } = await getDict();
+  const { profile } = getContent(lang);
   return (
     <section id="contact" className="mx-auto max-w-[1080px] px-6 py-20">
       <div className="mb-8">
-        <p className="eyebrow">Get in touch</p>
-        <h2 className="mt-2 text-3xl font-bold tracking-tight">
-          Building a React or Next.js product?
-        </h2>
-        <p className="mt-3 max-w-xl text-[15px] text-[var(--text-muted)]">
-          Open to senior frontend roles and React/Next.js projects — component architecture,
-          performance, and clean TypeScript.
-        </p>
+        <p className="eyebrow">{t.contact.eyebrow}</p>
+        <h2 className="mt-2 text-3xl font-bold tracking-tight">{t.contact.title}</h2>
+        <p className="mt-3 max-w-xl text-[15px] text-[var(--text-muted)]">{t.contact.lead}</p>
       </div>
       <div className="flex flex-wrap gap-3">
         <a href={`mailto:${profile.email}`} className="btn-primary">
@@ -24,7 +22,7 @@ export default function ContactSection() {
           github
         </a>
         <a href={profile.resumeHref} target="_blank" rel="noopener noreferrer" className="btn-ghost">
-          résumé.pdf
+          {t.nav.resume}
         </a>
       </div>
     </section>

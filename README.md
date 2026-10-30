@@ -6,7 +6,9 @@ A frontend-focused portfolio site built with Next.js (App Router), TypeScript, a
 
 - `app/` — routes: `/` (frontend work — experience, stack, contact), `/shopify-and-wordpress` (Shopify & WordPress work) and `/free-apps` (free apps showcase; add apps to `freeApps` in `lib/content.ts`, screenshots in `public/apps/<slug>/`)
 - `components/` — Nav, Hero, ExperienceSection, StackSection, ContactSection, ProjectCard, ServiceCard, CaseStudy, Footer
-- `lib/content.ts` — all copy (experience, stack, projects, services) in one place — edit this file to update content
+- `lib/content.ts` — all content (experience, stack, projects, services) in English and Arabic — edit this file to update content
+- `lib/i18n.ts` — UI strings in English and Arabic; the language toggle stores the choice in a `lang` cookie (English by default, Arabic renders right-to-left)
+- `lib/theme.ts` + `components/ThemeToggle.tsx` — light/dark toggle; follows the system setting until the visitor picks one (saved in localStorage)
 - `public/` — headshot, favicons, résumé PDFs
 
 ## Local development
@@ -28,7 +30,7 @@ Open [http://localhost:3000](http://localhost:3000).
 
 ## Making changes later
 
-- Copy (experience, skills, projects) lives in `lib/content.ts`.
-- Colors and design tokens are CSS variables at the top of `app/globals.css` (`:root`).
+- Copy (experience, skills, projects) lives in `lib/content.ts` (`en` and `ar` objects); UI labels live in `lib/i18n.ts`.
+- Colors and design tokens are CSS variables at the top of `app/globals.css` (`:root` for light, `[data-theme="dark"]` for dark).
 - To swap the headshot, replace `public/profile.jpg` and keep the filename.
 - To update the résumé, replace `public/Loai_Amr_Frontend_Developer.pdf` and keep the filename, or update `resumeHref` in `lib/content.ts`.

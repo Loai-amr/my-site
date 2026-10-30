@@ -1,0 +1,173 @@
+import { cookies } from "next/headers";
+
+export type Lang = "en" | "ar";
+export const LANG_COOKIE = "lang";
+
+/** English is the default; Arabic when the visitor picked it with the toggle. */
+export async function getLang(): Promise<Lang> {
+  const store = await cookies();
+  return store.get(LANG_COOKIE)?.value === "ar" ? "ar" : "en";
+}
+
+export async function getDict() {
+  const lang = await getLang();
+  return { lang, t: dict[lang] };
+}
+
+const en = {
+  dir: "ltr" as "ltr" | "rtl",
+  langToggle: "العربية",
+  langToggleLabel: "Switch to Arabic",
+  themeToLight: "Switch to light mode",
+  themeToDark: "Switch to dark mode",
+  meta: {
+    title: "Loai Amr — Senior Frontend Developer (React & Next.js)",
+    description:
+      "Senior Frontend Developer building fast, responsive web apps with React, Next.js & TypeScript. Based in Cairo, Egypt.",
+    siteName: "Loai Amr — Frontend Developer",
+  },
+  nav: {
+    work: "work",
+    stack: "stack",
+    contact: "contact",
+    shopifyWp: "shopify & wordpress work →",
+    freeApps: "free apps",
+    shop: "shop",
+    resume: "résumé.pdf",
+  },
+  hero: {
+    openTo: "open to new roles",
+    titleA: "Frontend interfaces that are ",
+    fast: "fast",
+    titleB: ", ",
+    tested: "tested",
+    titleC: ", and built to scale.",
+    lead: "4+ years building responsive, high-performance web applications with React and Next.js. Expert in component architecture, state management, performance optimization, and modern CSS — currently leading frontend architecture for a B2B eCommerce platform.",
+    ctaPrimary: "Get in touch →",
+    ctaSecondary: "See my experience",
+  },
+  experience: { eyebrow: "Experience", title: "Where I've shipped React & Next.js." },
+  stack: { eyebrow: "Tools", title: "What I actually ship with.", education: "Education" },
+  contact: {
+    eyebrow: "Get in touch",
+    title: "Building a React or Next.js product?",
+    lead: "Open to senior frontend roles and React/Next.js projects — component architecture, performance, and clean TypeScript.",
+  },
+  footer: "Built with Next.js & TypeScript · Loai Amr · Cairo, Egypt",
+  back: "← back to frontend work",
+  shopifyWp: {
+    metaTitle: "Shopify & WordPress Development",
+    metaDescription:
+      "Shopify theme development, WordPress/Elementor builds, WooCommerce stores, and performance rebuilds — 16s to 1.2s load time.",
+    eyebrow: "Also in the toolkit",
+    title: "Shopify & WordPress work.",
+    lead: "Alongside React/Next.js product work, Loai has 50+ Upwork projects and 24+ independently-built WordPress sites — Shopify storefronts, WordPress/Elementor builds, and the performance work most agencies skip.",
+    projectsEyebrow: "Projects",
+    projectsTitle: "Storefronts & sites shipped.",
+    proofEyebrow: "Proof, not a promise",
+    proofTitle: "16 seconds to 1.2. Here's what that's worth.",
+    ctaText: "Have a Shopify or WordPress project? Let's talk.",
+    ctaResume: "eCommerce résumé.pdf",
+  },
+  caseStudy: {
+    visit: "visit site →",
+    before: "BEFORE",
+    after: "AFTER",
+    whyTitle: "Why this is a revenue number, not a vanity metric",
+    whyA: "Google's mobile UX research puts bounce probability at roughly ",
+    whyStrong: "+90% when load time goes from 1s to 5s",
+    whyB: ". Applying an 80% drop-off at the 2-second mark to a site running at 16 seconds means most traffic never saw the page at all.",
+  },
+  freeApps: {
+    metaTitle: "Free Apps",
+    metaDescription:
+      "Small, free, privacy-friendly apps by Loai Amr. No accounts, no ads, your data stays on your device.",
+    eyebrow: "Free apps",
+    titleA: "Small tools, ",
+    free: "free",
+    titleB: " for everyone.",
+    lead: "Little apps I build for my own day-to-day and share for free. No accounts, no ads, and your data stays on your device.",
+    open: "Open the app ↗︎",
+    source: "Source on GitHub",
+  },
+};
+
+const ar: typeof en = {
+  dir: "rtl",
+  langToggle: "English",
+  langToggleLabel: "التبديل إلى الإنجليزية",
+  themeToLight: "التبديل إلى الوضع الفاتح",
+  themeToDark: "التبديل إلى الوضع الداكن",
+  meta: {
+    title: "لؤي عمرو — مطوّر واجهات أمامية أول (React و Next.js)",
+    description:
+      "مطوّر واجهات أمامية أول أبني تطبيقات ويب سريعة ومتجاوبة باستخدام React و Next.js و TypeScript. من القاهرة، مصر.",
+    siteName: "لؤي عمرو — مطوّر واجهات أمامية",
+  },
+  nav: {
+    work: "الخبرات",
+    stack: "الأدوات",
+    contact: "تواصل",
+    shopifyWp: "أعمال Shopify و WordPress ←",
+    freeApps: "تطبيقات مجانية",
+    shop: "المتجر",
+    resume: "السيرة الذاتية",
+  },
+  hero: {
+    openTo: "متاح لفرص جديدة",
+    titleA: "واجهات ",
+    fast: "سريعة",
+    titleB: "، ",
+    tested: "مُختبَرة",
+    titleC: "، ومبنية لتكبر مع مشروعك.",
+    lead: "أكثر من 4 سنوات في بناء تطبيقات ويب متجاوبة وعالية الأداء باستخدام React و Next.js. متخصص في معمارية المكوّنات وإدارة الحالة وتحسين الأداء و CSS الحديث، وأقود حاليًا معمارية الواجهات الأمامية لمنصة تجارة إلكترونية B2B.",
+    ctaPrimary: "تواصل معي ←",
+    ctaSecondary: "شاهد خبراتي",
+  },
+  experience: { eyebrow: "الخبرات", title: "أين أطلقت مشاريع React و Next.js." },
+  stack: { eyebrow: "الأدوات", title: "الأدوات التي أعمل بها فعلًا.", education: "التعليم" },
+  contact: {
+    eyebrow: "تواصل معي",
+    title: "تبني منتجًا بـ React أو Next.js؟",
+    lead: "متاح لوظائف الواجهات الأمامية (Senior) ولمشاريع React و Next.js: معمارية المكوّنات، الأداء، وكود TypeScript نظيف.",
+  },
+  footer: "مبني بـ Next.js و TypeScript · لؤي عمرو · القاهرة، مصر",
+  back: "→ العودة إلى أعمال الواجهات الأمامية",
+  shopifyWp: {
+    metaTitle: "تطوير Shopify و WordPress",
+    metaDescription:
+      "تطوير قوالب Shopify، ومواقع WordPress و Elementor، ومتاجر WooCommerce، وإعادة بناء المواقع لتكون أسرع: من 16 ثانية إلى 1.2 ثانية.",
+    eyebrow: "أيضًا ضمن أدواتي",
+    title: "أعمال Shopify و WordPress.",
+    lead: "بجانب منتجات React و Next.js، نفّذ لؤي أكثر من 50 مشروعًا على Upwork وبنى أكثر من 24 موقع WordPress بشكل مستقل: متاجر Shopify، ومواقع WordPress و Elementor، وتحسين الأداء الذي تتجاهله معظم الوكالات.",
+    projectsEyebrow: "المشاريع",
+    projectsTitle: "متاجر ومواقع تم إطلاقها.",
+    proofEyebrow: "إثبات وليس وعدًا",
+    proofTitle: "من 16 ثانية إلى 1.2. وهذه قيمتها.",
+    ctaText: "عندك مشروع Shopify أو WordPress؟ لنتحدث.",
+    ctaResume: "السيرة الذاتية للتجارة الإلكترونية",
+  },
+  caseStudy: {
+    visit: "زيارة الموقع ←",
+    before: "قبل",
+    after: "بعد",
+    whyTitle: "لماذا هذا رقم يخص الأرباح وليس مجرد رقم للتباهي",
+    whyA: "أبحاث Google عن تجربة المستخدم على الموبايل تقدّر أن احتمال مغادرة الزائر ",
+    whyStrong: "يرتفع بنحو 90% عندما يزيد وقت التحميل من ثانية إلى 5 ثوانٍ",
+    whyB: ". وإذا طبّقنا نسبة مغادرة 80% عند الثانية الثانية على موقع يحمّل في 16 ثانية، فمعظم الزوار لم يروا الصفحة أصلًا.",
+  },
+  freeApps: {
+    metaTitle: "تطبيقات مجانية",
+    metaDescription:
+      "تطبيقات صغيرة ومجانية تحترم خصوصيتك من لؤي عمرو. بدون حسابات أو إعلانات، وبياناتك تبقى على جهازك.",
+    eyebrow: "تطبيقات مجانية",
+    titleA: "أدوات صغيرة، ",
+    free: "مجانية",
+    titleB: " للجميع.",
+    lead: "تطبيقات صغيرة أبنيها لاستخدامي اليومي وأشاركها مجانًا. بدون حسابات أو إعلانات، وبياناتك تبقى على جهازك.",
+    open: "افتح التطبيق ↗︎",
+    source: "الكود على GitHub",
+  },
+};
+
+export const dict = { en, ar };
