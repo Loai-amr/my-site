@@ -116,7 +116,7 @@ const en = {
       url: "https://www.onemoreeg.com/",
       tagline: "Egypt's home for sport.",
       summary:
-        "Shop verified stores and official brands, follow athletes, book courts and gyms, and compete, all in one account. I built every side: the client-facing website, the admin dashboard and the customer dashboard.",
+        "Shop verified stores and official brands, follow athletes, book courts and gyms, and compete, all in one account. I built the frontend for every side: the client-facing website, the admin dashboard and the customer dashboard.",
       parts: ["Client-facing website", "Admin dashboard", "Customer dashboard", "Partner portal"],
       shots: [
         { slug: "onemore-site", name: "ONE MORE", label: "Client-facing website", url: "https://www.onemoreeg.com/" },
@@ -129,7 +129,7 @@ const en = {
       url: "https://staging.witanadvisory.com/",
       tagline: "Finance & accounting talent across the Gulf.",
       summary:
-        "Scored matching for finance leaders, from CFO to analyst. I built the client-facing website and both dashboards: Witan Command, an AI-assisted workspace for CFOs, auditors and analysts, and Witan Ops, the internal talent-matching workspace.",
+        "Scored matching for finance leaders, from CFO to analyst. I built the frontend for the client-facing website and both dashboards: Witan Command, an AI-assisted workspace for CFOs, auditors and analysts, and Witan Ops, the internal talent-matching workspace.",
       parts: ["Client-facing website", "CFO dashboard", "Talent dashboard"],
       shots: [
         { slug: "witan-site", name: "Witan Advisory", label: "Client-facing website", url: "https://staging.witanadvisory.com/" },
@@ -167,7 +167,7 @@ const ar: typeof en = {
       ...en.products[0],
       tagline: "بيت الرياضة في مصر.",
       summary:
-        "تسوّق من متاجر موثّقة وعلامات رسمية، وتابع الرياضيين، واحجز الملاعب والجيم، ونافس، كل ذلك بحساب واحد. بنيت كل الأجزاء: الموقع الموجّه للعملاء، ولوحة تحكم الإدارة، ولوحة تحكم العملاء.",
+        "تسوّق من متاجر موثّقة وعلامات رسمية، وتابع الرياضيين، واحجز الملاعب والجيم، ونافس، كل ذلك بحساب واحد. بنيت الواجهة الأمامية لكل الأجزاء: الموقع الموجّه للعملاء، ولوحة تحكم الإدارة، ولوحة تحكم العملاء.",
       parts: ["الموقع الموجّه للعملاء", "لوحة تحكم الإدارة", "لوحة تحكم العملاء", "بوابة الشركاء"],
       shots: [
         { ...en.products[0].shots[0], label: "الموقع الموجّه للعملاء" },
@@ -178,7 +178,7 @@ const ar: typeof en = {
       ...en.products[1],
       tagline: "كفاءات المالية والمحاسبة في الخليج.",
       summary:
-        "مطابقة مدعومة بالتقييم لقيادات المالية، من المدير المالي إلى المحلل. بنيت الموقع الموجّه للعملاء ولوحتي التحكم: Witan Command، مساحة عمل مدعومة بالذكاء الاصطناعي للمديرين الماليين والمراجعين والمحللين، و Witan Ops، مساحة العمل الداخلية لمطابقة الكفاءات.",
+        "مطابقة مدعومة بالتقييم لقيادات المالية، من المدير المالي إلى المحلل. بنيت الواجهة الأمامية للموقع الموجّه للعملاء ولوحتي التحكم: Witan Command، مساحة عمل مدعومة بالذكاء الاصطناعي للمديرين الماليين والمراجعين والمحللين، و Witan Ops، مساحة العمل الداخلية لمطابقة الكفاءات.",
       parts: ["الموقع الموجّه للعملاء", "لوحة تحكم المدير المالي", "لوحة تحكم الكفاءات"],
       shots: [
         { ...en.products[1].shots[0], label: "الموقع الموجّه للعملاء" },
