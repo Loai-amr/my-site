@@ -1,5 +1,6 @@
 import Link from "next/link";
 import LangToggle from "@/components/LangToggle";
+import SocialIcons from "@/components/SocialIcons";
 import ThemeToggle from "@/components/ThemeToggle";
 import { getContent } from "@/lib/content";
 import { getDict } from "@/lib/i18n";
@@ -13,11 +14,14 @@ export default async function Nav() {
         <Link href="/" className="font-mono text-lg font-semibold text-[var(--text)]" dir="ltr">
           loai<span className="text-[var(--accent-blue)]">_</span>
         </Link>
-        <div className="flex items-center gap-3 text-sm font-medium text-[var(--text-muted)] sm:gap-5">
-          <Link href="/#work" className="hidden hover:text-[var(--text)] sm:inline">
+        <div className="flex items-center gap-3 whitespace-nowrap text-sm font-medium text-[var(--text-muted)] sm:gap-5">
+          <Link href="/#projects" className="hidden hover:text-[var(--text)] sm:inline">
+            {t.nav.projects}
+          </Link>
+          <Link href="/#work" className="hidden hover:text-[var(--text)] md:inline">
             {t.nav.work}
           </Link>
-          <Link href="/#stack" className="hidden hover:text-[var(--text)] sm:inline">
+          <Link href="/#stack" className="hidden hover:text-[var(--text)] lg:inline">
             {t.nav.stack}
           </Link>
           <Link href="/#contact" className="hidden hover:text-[var(--text)] sm:inline">
@@ -26,7 +30,7 @@ export default async function Nav() {
           <Link href="/shopify-and-wordpress" className="hidden hover:text-[var(--accent-blue)] lg:inline">
             {t.nav.shopifyWp}
           </Link>
-          <Link href="/free-apps" className="hover:text-[var(--text)]">
+          <Link href="/free-apps" className="hidden hover:text-[var(--text)] min-[400px]:inline">
             {t.nav.freeApps}
           </Link>
           <a href="https://shop.loaiamr.com" className="text-[var(--accent-blue)] hover:text-[var(--text)]">
@@ -40,7 +44,8 @@ export default async function Nav() {
           >
             {t.nav.resume}
           </a>
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-1.5 sm:gap-2">
+            <SocialIcons />
             <LangToggle lang={lang} label={t.langToggleLabel} text={t.langToggle} />
             <ThemeToggle toLight={t.themeToLight} toDark={t.themeToDark} />
           </div>

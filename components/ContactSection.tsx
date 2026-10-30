@@ -1,3 +1,4 @@
+import SocialIcons from "@/components/SocialIcons";
 import { getContent } from "@/lib/content";
 import { getDict } from "@/lib/i18n";
 
@@ -24,6 +25,9 @@ export default async function ContactSection() {
         <a href={profile.resumeHref} target="_blank" rel="noopener noreferrer" className="btn-ghost">
           {t.nav.resume}
         </a>
+        <div className="flex gap-3">
+          <SocialIcons size="lg" />
+        </div>
       </div>
     </section>
   );
