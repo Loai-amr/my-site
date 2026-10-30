@@ -28,14 +28,6 @@ export type Service = {
   tags: string[];
 };
 
-export type Project = {
-  tag: string;
-  tagClass: "shopify" | "wp" | "b2b" | "scale";
-  title: string;
-  stackLine: string;
-  desc: string;
-};
-
 export type FreeApp = {
   slug: string;
   name: string;
@@ -161,36 +153,6 @@ const en = {
     },
   ] as Service[],
 
-  otherWorkProjects: [
-    {
-      tag: "shopify",
-      tagClass: "shopify",
-      title: "Shopify Store Builds & Theme Customization",
-      stackLine: "Shopify · Liquid · JavaScript",
-      desc: "Storefront builds and theme customization across every eCommerce engagement to date — custom sections, checkout tuning, and payment integrations.",
-    },
-    {
-      tag: "wordpress",
-      tagClass: "wp",
-      title: "Kodiak Fitness Center",
-      stackLine: "WordPress · Elementor Pro",
-      desc: "Multi-location gym brand site with a pre-sell landing page that turned a \"coming soon\" page into a working membership funnel before launch.",
-    },
-    {
-      tag: "wordpress",
-      tagClass: "wp",
-      title: "Phil & Lee's Homes",
-      stackLine: "WordPress · Elementor",
-      desc: "Home builder site matched precisely to an existing brand system, including a conversion-focused post-contact \"Thank You\" flow.",
-    },
-    {
-      tag: "wordpress",
-      tagClass: "wp",
-      title: "Syslo Ventures — Agency Site",
-      stackLine: "WordPress · Elementor",
-      desc: "Marketing agency's own site and campaign pages — including the 16s → 1.2s performance rebuild below.",
-    },
-  ] as Project[],
 
   caseStudy: {
     client: "Syslo Ventures",
@@ -338,36 +300,6 @@ const ar: typeof en = {
     },
   ],
 
-  otherWorkProjects: [
-    {
-      tag: "shopify",
-      tagClass: "shopify",
-      title: "بناء متاجر Shopify وتخصيص القوالب",
-      stackLine: "Shopify · Liquid · JavaScript",
-      desc: "بناء المتاجر وتخصيص القوالب في كل مشاريع التجارة الإلكترونية حتى الآن: أقسام مخصصة، وتحسين صفحة الدفع، وربط بوابات الدفع.",
-    },
-    {
-      tag: "wordpress",
-      tagClass: "wp",
-      title: "Kodiak Fitness Center",
-      stackLine: "WordPress · Elementor Pro",
-      desc: "موقع لسلسلة صالات رياضية بعدة فروع، مع صفحة حجز مسبق حوّلت صفحة \"قريبًا\" إلى مسار اشتراكات فعّال قبل الافتتاح.",
-    },
-    {
-      tag: "wordpress",
-      tagClass: "wp",
-      title: "Phil & Lee's Homes",
-      stackLine: "WordPress · Elementor",
-      desc: "موقع لشركة بناء منازل مطابق تمامًا لهويتها البصرية، مع صفحة \"شكرًا\" بعد التواصل مصممة لرفع التحويل.",
-    },
-    {
-      tag: "wordpress",
-      tagClass: "wp",
-      title: "Syslo Ventures — موقع الوكالة",
-      stackLine: "WordPress · Elementor",
-      desc: "موقع وكالة تسويق وصفحات حملاتها، ومنها إعادة البناء التي خفّضت وقت التحميل من 16 ثانية إلى 1.2 ثانية بالأسفل.",
-    },
-  ],
 
   caseStudy: {
     ...en.caseStudy,
