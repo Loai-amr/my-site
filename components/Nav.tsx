@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { setLang } from "@/app/actions";
+import LangToggle from "@/components/LangToggle";
 import ThemeToggle from "@/components/ThemeToggle";
 import { getContent } from "@/lib/content";
 import { getDict } from "@/lib/i18n";
@@ -41,18 +41,7 @@ export default async function Nav() {
             {t.nav.resume}
           </a>
           <div className="flex items-center gap-2">
-            <form action={setLang}>
-              <input type="hidden" name="lang" value={lang === "ar" ? "en" : "ar"} />
-              <button
-                type="submit"
-                title={t.langToggleLabel}
-                aria-label={t.langToggleLabel}
-                lang={lang === "ar" ? "en" : "ar"}
-                className="h-8 rounded-[var(--radius)] border border-[var(--border)] px-2.5 text-[13px] text-[var(--text)] hover:border-[var(--border-hover)] hover:bg-[var(--bg-raised)]"
-              >
-                {t.langToggle}
-              </button>
-            </form>
+            <LangToggle lang={lang} label={t.langToggleLabel} text={t.langToggle} />
             <ThemeToggle toLight={t.themeToLight} toDark={t.themeToDark} />
           </div>
         </div>

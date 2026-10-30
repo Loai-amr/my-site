@@ -32,12 +32,37 @@ function subscribe(onChange: () => void) {
 export default function ThemeToggle({ toLight, toDark }: { toLight: string; toDark: string }) {
   const theme = useSyncExternalStore(subscribe, readTheme, () => "light");
 
-  const toggle = () => {
+  const toggle = (e: React.MouseEvent<HTMLButtonElement>) => {
+    const root = document.documentElement;
     const next = theme === "dark" ? "light" : "dark";
-    document.documentElement.dataset.theme = next;
-    try {
-      localStorage.setItem(THEME_KEY, next);
-    } catch {}
+    const apply = () => {
+      root.dataset.theme = next;
+      try {
+        localStorage.setItem(THEME_KEY, next);
+      } catch {}
+    };
+
+    if (matchMedia("(prefers-reduced-motion: reduce)").matches) return apply();
+
+    // Browsers without View Transitions: cross-fade the colours.
+    if (!document.startViewTransition) {
+      root.classList.add("theme-fading");
+      apply();
+      setTimeout(() => root.classList.remove("theme-fading"), 400);
+      return;
+    }
+
+    // The new theme grows as a circle from the button until it covers the page.
+    const { left, top, width, height } = e.currentTarget.getBoundingClientRect();
+    const x = left + width / 2;
+    const y = top + height / 2;
+    const radius = Math.hypot(Math.max(x, innerWidth - x), Math.max(y, innerHeight - y));
+    document.startViewTransition(apply).ready.then(() => {
+      root.animate(
+        { clipPath: [`circle(0px at ${x}px ${y}px)`, `circle(${radius}px at ${x}px ${y}px)`] },
+        { duration: 500, easing: "cubic-bezier(0.4, 0, 0.2, 1)", pseudoElement: "::view-transition-new(root)" },
+      );
+    });
   };
 
   const label = theme === "dark" ? toLight : toDark;

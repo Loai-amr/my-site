@@ -22,41 +22,41 @@
 /* Dark theme: picked with the toggle, or the system setting before the theme script runs. */
 :root[data-theme="dark"] {
   color-scheme: dark;
-  --bg: #0b1120;
-  --bg-raised: #131c2e;
-  --bg-card: #0f172a;
-  --border: #1e293b;
-  --border-hover: #334155;
-  --text: #e2e8f0;
-  --text-muted: #94a3b8;
-  --text-dim: #64748b;
+  --bg: #0a0a0a;
+  --bg-raised: #1a1a1a;
+  --bg-card: #121212;
+  --border: #262626;
+  --border-hover: #3d3d3d;
+  --text: #ededed;
+  --text-muted: #a3a3a3;
+  --text-dim: #737373;
   --accent-green: #4ade80;
   --accent-blue: #60a5fa;
   --accent-red: #f87171;
   --accent-yellow: #fbbf24;
   --shopify: #95bf47;
   --wp: #60a5fa;
-  --on-accent: #0b1120;
+  --on-accent: #0a0a0a;
 }
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme]) {
     color-scheme: dark;
-    --bg: #0b1120;
-    --bg-raised: #131c2e;
-    --bg-card: #0f172a;
-    --border: #1e293b;
-    --border-hover: #334155;
-    --text: #e2e8f0;
-    --text-muted: #94a3b8;
-    --text-dim: #64748b;
+    --bg: #0a0a0a;
+    --bg-raised: #1a1a1a;
+    --bg-card: #121212;
+    --border: #262626;
+    --border-hover: #3d3d3d;
+    --text: #ededed;
+    --text-muted: #a3a3a3;
+    --text-dim: #737373;
     --accent-green: #4ade80;
     --accent-blue: #60a5fa;
     --accent-red: #f87171;
     --accent-yellow: #fbbf24;
     --shopify: #95bf47;
     --wp: #60a5fa;
-    --on-accent: #0b1120;
+    --on-accent: #0a0a0a;
   }
 }
 
@@ -72,6 +72,30 @@
 }
 [data-theme="dark"] .theme-icon-moon {
   display: none;
+}
+
+/* Theme switch: a circle grows from the toggle (View Transitions); see ThemeToggle. */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+/* Browsers without View Transitions cross-fade colours instead, only while switching. */
+html.theme-fading,
+html.theme-fading *,
+html.theme-fading *::before,
+html.theme-fading *::after {
+  transition: background-color 0.35s ease, border-color 0.35s ease, color 0.35s ease, fill 0.35s ease !important;
+}
+
+/* Language switch: the page fades out, flips language and direction while hidden, then fades back in. */
+body > * {
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+html.lang-switching body > * {
+  opacity: 0;
+  transform: translateY(4px);
 }
 
 /* Arabic: its own typeface, and no letter-spacing (it breaks up connected letters). */
