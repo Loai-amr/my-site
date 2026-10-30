@@ -59,11 +59,11 @@ export default async function ProjectsSection() {
         </article>
       </div>
 
-      {/* ONE MORE + Witan: products with their own dashboards. */}
+      {/* ONE MORE + Witan side by side: frontend for the website and the dashboards. */}
       <div className="mx-auto max-w-[1080px] px-6 pt-20">
         <p className="eyebrow">{p.moreEyebrow}</p>
         <h3 className="mt-2 text-2xl font-bold tracking-tight">{p.moreTitle}</h3>
-        <div className="mt-8 flex flex-col gap-10">
+        <div className="mt-8 grid grid-cols-1 gap-8 lg:grid-cols-2">
           {products.map((product) => (
             <ProductCase key={product.id} product={product} t={t} />
           ))}
@@ -97,17 +97,17 @@ export default async function ProjectsSection() {
 
 function ProductCase({ product, t }: { product: Product; t: Dict }) {
   return (
-    <article className="card overflow-hidden hover:shadow-sm">
-      <div className="p-6 md:p-8">
+    <article className="card flex flex-col overflow-hidden hover:shadow-sm">
+      <div className="flex-1 p-6 md:p-8">
         <div className="flex flex-wrap items-baseline justify-between gap-3">
           <h4 className="text-2xl font-bold tracking-tight">{product.name}</h4>
-          <FullStackBadge text={t.projects.fullStack} />
+          <FullStackBadge text={t.projects.frontend} />
         </div>
         <p className="mt-1 font-medium text-[var(--accent-blue)]">{product.tagline}</p>
         <p className="mt-3 max-w-3xl text-[15px] text-[var(--text-muted)]">{product.summary}</p>
         <Parts parts={product.parts} />
       </div>
-      <div className="border-t border-[var(--border)] bg-[var(--bg-raised)]/50 px-2 py-10 md:px-8">
+      <div className="border-t border-[var(--border)] bg-[var(--bg-raised)]/50 px-2 py-8 md:px-4">
         <Showcase sites={product.shots} labels={t.showcase} />
       </div>
     </article>

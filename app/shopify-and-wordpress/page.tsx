@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import ServiceCard from "@/components/ServiceCard";
-import ProjectCard from "@/components/ProjectCard";
 import CaseStudy from "@/components/CaseStudy";
 import Showcase from "@/components/Showcase";
 import { getContent } from "@/lib/content";
@@ -51,7 +50,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default async function ShopifyAndWordPress() {
   const { lang, t } = await getDict();
-  const { otherWorkServices, otherWorkProjects, profile } = getContent(lang);
+  const { otherWorkServices, profile } = getContent(lang);
   const { wordpressSites } = getProjects(lang);
   return (
     <main>
@@ -81,18 +80,6 @@ export default async function ShopifyAndWordPress() {
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
           {otherWorkServices.map((service) => (
             <ServiceCard key={service.id} service={service} />
-          ))}
-        </div>
-      </section>
-
-      <section className="mx-auto max-w-[1080px] px-6 pb-20">
-        <div className="mb-8">
-          <p className="eyebrow">{t.shopifyWp.projectsEyebrow}</p>
-          <h2 className="mt-2 text-2xl font-bold tracking-tight">{t.shopifyWp.projectsTitle}</h2>
-        </div>
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {otherWorkProjects.map((project) => (
-            <ProjectCard key={project.title} project={project} />
           ))}
         </div>
       </section>
