@@ -1,12 +1,15 @@
-import { education, stack } from "@/lib/content";
+import { getContent } from "@/lib/content";
+import { getDict } from "@/lib/i18n";
 
-export default function StackSection() {
+export default async function StackSection() {
+  const { lang, t } = await getDict();
+  const { education, stack } = getContent(lang);
   return (
     <section id="stack" className="border-t border-[var(--border)] bg-[var(--bg-raised)]/40">
       <div className="mx-auto max-w-[1080px] px-6 py-20">
         <div className="mb-10">
-          <p className="eyebrow">Tools</p>
-          <h2 className="mt-2 text-3xl font-bold tracking-tight">What I actually ship with.</h2>
+          <p className="eyebrow">{t.stack.eyebrow}</p>
+          <h2 className="mt-2 text-3xl font-bold tracking-tight">{t.stack.title}</h2>
         </div>
 
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -26,7 +29,7 @@ export default function StackSection() {
         </div>
 
         <div className="mt-10 border-t border-[var(--border)] pt-8">
-          <p className="eyebrow">Education</p>
+          <p className="eyebrow">{t.stack.education}</p>
           <div className="mt-4 flex flex-col gap-3">
             {education.map((e) => (
               <div key={e.title} className="flex flex-wrap items-baseline justify-between gap-2">

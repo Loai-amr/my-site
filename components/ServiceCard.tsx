@@ -11,7 +11,7 @@ export default function ServiceCard({ service }: { service: Service }) {
       <ul className="mt-4 flex flex-col gap-1.5">
         {service.tags.map((tag) => (
           <li key={tag} className="flex gap-2 text-sm text-[var(--text-muted)]">
-            <span className="text-[var(--accent-green)]">▸</span>
+            <span className="text-[var(--accent-green)] rtl:-scale-x-100">▸</span>
             {tag}
           </li>
         ))}

@@ -1,7 +1,10 @@
 import Image from "next/image";
-import { heroKeywords, profile } from "@/lib/content";
+import { getContent } from "@/lib/content";
+import { getDict } from "@/lib/i18n";
 
-export default function Hero() {
+export default async function Hero() {
+  const { lang, t } = await getDict();
+  const { heroKeywords, profile } = getContent(lang);
   return (
     <header className="border-b border-[var(--border)]">
       <div className="mx-auto grid max-w-[1080px] grid-cols-1 items-center gap-12 px-6 py-16 md:grid-cols-[280px_1fr] md:py-24">
@@ -18,7 +21,7 @@ export default function Hero() {
           </div>
           <div className="flex items-center gap-2 rounded-full border border-[var(--border)] bg-[var(--bg-raised)] px-3 py-1.5 text-[13px] font-medium text-[var(--text-muted)]">
             <span className="h-2 w-2 rounded-full bg-[var(--accent-green)]" />
-            {profile.location} · open to new roles
+            {profile.location} · {t.hero.openTo}
           </div>
         </div>
 
@@ -27,15 +30,13 @@ export default function Hero() {
             {profile.title} · {profile.tagline}
           </p>
           <h1 className="mt-3 text-4xl font-extrabold leading-tight tracking-tight md:text-5xl">
-            Frontend interfaces that are <span className="text-[var(--accent-green)]">fast</span>,{" "}
-            <span className="text-[var(--accent-blue)]">tested</span>, and built to scale.
+            {t.hero.titleA}
+            <span className="text-[var(--accent-green)]">{t.hero.fast}</span>
+            {t.hero.titleB}
+            <span className="text-[var(--accent-blue)]">{t.hero.tested}</span>
+            {t.hero.titleC}
           </h1>
-          <p className="mt-5 max-w-xl text-[15px] text-[var(--text-muted)]">
-            4+ years building responsive, high-performance web applications with React and
-            Next.js. Expert in component architecture, state management, performance
-            optimization, and modern CSS — currently leading frontend architecture for a B2B
-            eCommerce platform.
-          </p>
+          <p className="mt-5 max-w-xl text-[15px] text-[var(--text-muted)]">{t.hero.lead}</p>
 
           <div className="mt-6 flex flex-wrap gap-2">
             {heroKeywords.map((kw) => (
@@ -47,10 +48,10 @@ export default function Hero() {
 
           <div className="mt-8 flex flex-wrap gap-3">
             <a href="#contact" className="btn-primary">
-              Get in touch →
+              {t.hero.ctaPrimary}
             </a>
             <a href="#work" className="btn-ghost">
-              See my experience
+              {t.hero.ctaSecondary}
             </a>
           </div>
         </div>

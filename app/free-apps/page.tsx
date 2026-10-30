@@ -1,55 +1,60 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { freeApps, type FreeApp } from "@/lib/content";
+import { getContent, type FreeApp } from "@/lib/content";
+import { getDict } from "@/lib/i18n";
 
-const title = "Free Apps";
-const description =
-  "Small, free, privacy-friendly apps by Loai Amr. No accounts, no ads, your data stays on your device.";
-
-export const metadata: Metadata = {
-  title,
-  description,
-  alternates: { canonical: "/free-apps" },
-  openGraph: {
-    title: `${title} — Loai Amr`,
+export async function generateMetadata(): Promise<Metadata> {
+  const { t } = await getDict();
+  const title = t.freeApps.metaTitle;
+  const description = t.freeApps.metaDescription;
+  return {
+    title,
     description,
-    type: "website",
-    url: "/free-apps",
-    siteName: "Loai Amr — Frontend Developer",
-  },
-};
+    alternates: { canonical: "/free-apps" },
+    openGraph: {
+      title: `${title} — ${t.meta.siteName.split(" — ")[0]}`,
+      description,
+      type: "website",
+      url: "/free-apps",
+      siteName: t.meta.siteName,
+    },
+  };
+}
 
-export default function FreeAppsPage() {
+type Labels = { open: string; source: string };
+
+export default async function FreeAppsPage() {
+  const { lang, t } = await getDict();
+  const { freeApps } = getContent(lang);
   return (
     <main>
       <div className="mx-auto max-w-[1080px] px-6 pt-12">
         <Link href="/" className="text-sm font-medium text-[var(--accent-blue)]">
-          ← back to frontend work
+          {t.back}
         </Link>
       </div>
 
       <section className="mx-auto max-w-[1080px] px-6 py-12">
-        <p className="eyebrow">Free apps</p>
+        <p className="eyebrow">{t.freeApps.eyebrow}</p>
         <h1 className="mt-2 text-3xl font-bold tracking-tight md:text-4xl">
-          Small tools, <span className="text-[var(--accent-green)]">free</span> for everyone.
+          {t.freeApps.titleA}
+          <span className="text-[var(--accent-green)]">{t.freeApps.free}</span>
+          {t.freeApps.titleB}
         </h1>
-        <p className="mt-3 max-w-2xl text-[15px] text-[var(--text-muted)]">
-          Little apps I build for my own day-to-day and share for free. No accounts, no ads, and your
-          data stays on your device.
-        </p>
+        <p className="mt-3 max-w-2xl text-[15px] text-[var(--text-muted)]">{t.freeApps.lead}</p>
       </section>
 
       <div className="mx-auto max-w-[1080px] space-y-10 px-6 pb-20">
         {freeApps.map((app) => (
-          <AppShowcase key={app.slug} app={app} />
+          <AppShowcase key={app.slug} app={app} labels={t.freeApps} />
         ))}
       </div>
     </main>
   );
 }
 
-function AppShowcase({ app }: { app: FreeApp }) {
+function AppShowcase({ app, labels }: { app: FreeApp; labels: Labels }) {
   const [left, center, right] = app.screenshots;
   return (
     <article className="card overflow-hidden hover:shadow-sm">
@@ -77,18 +82,18 @@ function AppShowcase({ app }: { app: FreeApp }) {
           </ul>
           <div className="mt-7 flex flex-wrap gap-3">
             <a href={app.url} target="_blank" rel="noopener noreferrer" className="btn-primary">
-              Open the app ↗&#xFE0E;
+              {labels.open}
             </a>
             {app.source && (
               <a href={app.source} target="_blank" rel="noopener noreferrer" className="btn-ghost">
-                Source on GitHub
+                {labels.source}
               </a>
             )}
           </div>
         </div>
 
-        {/* Three phones fanned out over a soft glow; they straighten up on hover. */}
-        <div className="group relative flex items-end justify-center overflow-hidden px-4 pb-12 pt-2 lg:py-14">
+        {/* Three phones fanned out over a soft glow; they straighten up on hover. Same fan in Arabic. */}
+        <div dir="ltr" className="group relative flex items-end justify-center overflow-hidden px-4 pb-12 pt-2 lg:py-14">
           <div
             aria-hidden
             className="absolute inset-0 -z-0 bg-[radial-gradient(60%_55%_at_50%_55%,rgba(37,99,235,0.18),rgba(22,163,74,0.08)_55%,transparent_75%)]"
@@ -125,7 +130,7 @@ function Phone({
 }) {
   return (
     <div
-      className={`relative shrink-0 rounded-[2rem] bg-slate-900 p-[5px] shadow-2xl shadow-slate-900/30 ring-1 ring-slate-900/10 transition-transform duration-500 ease-out ${className}`}
+      className={`relative shrink-0 rounded-[2rem] bg-slate-900 p-[5px] shadow-2xl shadow-slate-900/30 ring-1 ring-slate-900/10 dark:ring-white/15 transition-transform duration-500 ease-out ${className}`}
     >
       <div aria-hidden className="absolute left-1/2 top-[11px] z-10 h-[10px] w-[28%] -translate-x-1/2 rounded-full bg-slate-900" />
       {/* Status-bar strip in the app's background colour keeps the screenshot clear of the
