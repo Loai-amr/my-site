@@ -7,9 +7,14 @@ export default async function Footer() {
     <footer className="border-t border-[var(--border)] py-8">
       <div className="mx-auto flex max-w-[1080px] flex-wrap items-center justify-between gap-3 px-6">
         <p className="text-sm text-[var(--text-dim)]">{t.footer}</p>
-        <Link href="/free-apps" className="text-sm font-medium text-[var(--accent-blue)]">
-          {t.nav.freeApps}
-        </Link>
+        <div className="flex gap-5">
+          <Link href="/blog" className="text-sm font-medium text-[var(--accent-blue)]">
+            {t.nav.blog}
+          </Link>
+          <Link href="/free-apps" className="text-sm font-medium text-[var(--accent-blue)]">
+            {t.nav.freeApps}
+          </Link>
+        </div>
       </div>
     </footer>
   );

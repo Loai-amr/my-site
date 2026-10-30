@@ -4,6 +4,7 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import { getDict } from "@/lib/i18n";
 import { themeScript } from "@/lib/theme";
+import { siteUrl } from "@/lib/site";
 import "./globals.css";
 
 const jakarta = Plus_Jakarta_Sans({
@@ -25,16 +26,6 @@ const plexArabic = IBM_Plex_Sans_Arabic({
   weight: ["400", "500", "600", "700"],
   preload: false,
 });
-
-// Resolves to the real deployment URL automatically (Vercel sets these env vars),
-// so Open Graph image/canonical links never point at a guessed domain that 404s.
-const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL ??
-  (process.env.VERCEL_PROJECT_PRODUCTION_URL
-    ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
-    : process.env.VERCEL_URL
-      ? `https://${process.env.VERCEL_URL}`
-      : "http://localhost:3000");
 
 const keywords = [
   "Loai Amr",
