@@ -1,21 +1,21 @@
 import Link from "next/link";
-import { formatPostDate, type PostSummary } from "@/lib/blog/types";
+import { formatPostDate, postImage, type PostSummary } from "@/lib/blog/types";
 
 // Posts are written in English, so cards stay LTR inside the Arabic layout too.
 export default function PostCard({ post, headingLevel = "h2" }: { post: PostSummary; headingLevel?: "h2" | "h3" }) {
   const Heading = headingLevel;
   return (
     <article lang="en" dir="ltr" className="card relative flex h-full flex-col overflow-hidden">
-      {post.cover_image && (
-        // eslint-disable-next-line @next/next/no-img-element -- cover images can come from any host
-        <img
-          src={post.cover_image}
-          alt=""
-          loading="lazy"
-          decoding="async"
-          className="aspect-[1200/630] w-full border-b border-[var(--border)] bg-[var(--bg-raised)] object-cover"
-        />
-      )}
+      {/* eslint-disable-next-line @next/next/no-img-element -- generated covers and external cover URLs */}
+      <img
+        src={postImage(post)}
+        alt=""
+        loading="lazy"
+        decoding="async"
+        width={1200}
+        height={630}
+        className="aspect-[1200/630] w-full border-b border-[var(--border)] bg-[var(--bg-raised)] object-cover"
+      />
       <div className="flex flex-1 flex-col gap-2.5 p-6">
         {post.published_at && (
           <time dateTime={post.published_at} className="font-mono text-[13px] text-[var(--text-dim)]">

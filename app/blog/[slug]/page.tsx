@@ -3,7 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getPublishedPost, getRelatedPosts, readingMinutes } from "@/lib/blog/posts";
 import { SLUG_RE } from "@/lib/blog/schema";
-import { formatPostDate } from "@/lib/blog/types";
+import { formatPostDate, postImage } from "@/lib/blog/types";
 import { getDict } from "@/lib/i18n";
 import { siteUrl } from "@/lib/site";
 import MarkdownContent from "@/components/Markdown";
@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
   const post = await load((await params).slug);
   if (!post) return { title: "Post not found", robots: { index: false } };
   const url = `/blog/${post.slug}`;
-  const images = post.cover_image ? [post.cover_image] : ["/opengraph-image"];
+  const images = [{ url: postImage(post), width: 1200, height: 630, alt: post.title }];
   return {
     title: post.title,
     description: post.excerpt,
@@ -62,7 +62,7 @@ export default async function BlogPost({ params }: { params: Params }) {
     inLanguage: "en",
     keywords: post.tags.join(", "),
     wordCount: post.content.split(/\s+/).filter(Boolean).length,
-    image: post.cover_image ?? `${siteUrl}/opengraph-image`,
+    image: new URL(postImage(post), siteUrl).toString(),
     author: { "@type": "Person", name: "Loai Amr", url: siteUrl },
     publisher: { "@type": "Person", name: "Loai Amr", url: siteUrl },
   };
@@ -95,14 +95,14 @@ export default async function BlogPost({ params }: { params: Params }) {
               ))}
             </div>
           )}
-          {post.cover_image && (
-            // eslint-disable-next-line @next/next/no-img-element -- cover images can come from any host
-            <img
-              src={post.cover_image}
-              alt=""
-              className="mt-8 aspect-[1200/630] w-full rounded-[var(--radius)] border border-[var(--border)] object-cover"
-            />
-          )}
+          {/* eslint-disable-next-line @next/next/no-img-element -- generated covers and external cover URLs */}
+          <img
+            src={postImage(post)}
+            alt=""
+            width={1200}
+            height={630}
+            className="mt-8 aspect-[1200/630] w-full rounded-[var(--radius)] border border-[var(--border)] bg-[var(--bg-raised)] object-cover"
+          />
         </header>
 
         <div className="mt-10">
