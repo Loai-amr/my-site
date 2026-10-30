@@ -26,7 +26,7 @@ const en = {
       "Senior Frontend Developer building fast, responsive web apps with React, Next.js & TypeScript. Based in Cairo, Egypt.",
     siteName: "Loai Amr — Frontend Developer",
   },
-  social: { instagram: "Instagram", tiktok: "TikTok" },
+  social: { linkedin: "LinkedIn", instagram: "Instagram", tiktok: "TikTok" },
   showcase: {
     prev: "Previous site",
     next: "Next site",
@@ -131,7 +131,7 @@ const ar: typeof en = {
       "مطوّر واجهات أمامية أول أبني تطبيقات ويب سريعة ومتجاوبة باستخدام React و Next.js و TypeScript. من القاهرة، مصر.",
     siteName: "لؤي عمرو — مطوّر واجهات أمامية",
   },
-  social: { instagram: "إنستجرام", tiktok: "تيك توك" },
+  social: { linkedin: "لينكدإن", instagram: "إنستجرام", tiktok: "تيك توك" },
   showcase: {
     prev: "الموقع السابق",
     next: "الموقع التالي",

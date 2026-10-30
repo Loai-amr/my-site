@@ -16,9 +16,6 @@ export default async function ContactSection() {
         <a href={`mailto:${profile.email}`} className="btn-primary">
           {profile.email}
         </a>
-        <a href={profile.linkedin} target="_blank" rel="noopener noreferrer" className="btn-ghost">
-          linkedin
-        </a>
         <a href={profile.github} target="_blank" rel="noopener noreferrer" className="btn-ghost">
           github
         </a>
@@ -26,7 +23,7 @@ export default async function ContactSection() {
           {t.nav.resume}
         </a>
         <div className="flex gap-3">
-          <SocialIcons size="lg" />
+          <SocialIcons size="lg" networks={["linkedin", "instagram", "tiktok"]} />
         </div>
       </div>
     </section>
