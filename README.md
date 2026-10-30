@@ -41,6 +41,10 @@ Open [http://localhost:3000](http://localhost:3000).
 
 `/blog` (paginated, tag filter), `/blog/[slug]` (markdown with highlighted code, reading time, related posts, Open Graph tags, `BlogPosting` JSON-LD), `/blog/rss.xml` and `/sitemap.xml`. Posts live in a `posts` table in the **same Supabase project as shop.loaiamr.com**. Queries are cached in the Next.js Data Cache under the `posts` tag and refreshed on demand whenever a post is published, edited or deleted, so new posts go live without a redeploy. (Blog pages render per request because the layout reads the language cookie, but they read from that cache. RSS and the sitemap are ISR.) Posts are written in English, so post content stays left-to-right in the Arabic layout.
 
+### Cover images
+
+Every post gets an image without storing anything. If `cover_image` is empty, `/blog/[slug]/cover.png` draws a 1200×630 cover on request (`lib/blog/cover.tsx`, cached by the CDN). It shows the title, tags and a syntax-highlighted "screenshot" of the post's first code block. Posts tagged `about`, or with no code, show the author photo (`public/blog/avatar.jpg`) instead. The cover is used on the blog cards, at the top of the post, and as the Open Graph / Twitter image. Set `cover_image` to an https URL to use your own image instead. Markdown images (`![alt](https://...)`) also work inside posts.
+
 ### Set in Vercel
 
 Add these to the project (Production, plus Preview if you want it there), then redeploy. `.env.example` has the details.

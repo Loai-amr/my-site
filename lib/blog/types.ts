@@ -24,3 +24,8 @@ export const UUID_RE = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f
 export function formatPostDate(iso: string): string {
   return new Date(iso).toLocaleDateString("en-US", { timeZone: "Africa/Cairo", dateStyle: "medium" });
 }
+
+/** The post's image: its own cover_image, else the generated cover (versioned by updated_at). */
+export function postImage(post: Pick<Post, "slug" | "cover_image" | "updated_at">): string {
+  return post.cover_image ?? `/blog/${post.slug}/cover.png?v=${Math.floor(Date.parse(post.updated_at) / 1000)}`;
+}
