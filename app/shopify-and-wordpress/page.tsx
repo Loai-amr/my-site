@@ -3,8 +3,10 @@ import Link from "next/link";
 import ServiceCard from "@/components/ServiceCard";
 import ProjectCard from "@/components/ProjectCard";
 import CaseStudy from "@/components/CaseStudy";
+import Showcase from "@/components/Showcase";
 import { getContent } from "@/lib/content";
 import { getDict } from "@/lib/i18n";
+import { getProjects } from "@/lib/projects";
 
 const keywords = [
   "Loai Amr",
@@ -50,6 +52,7 @@ export async function generateMetadata(): Promise<Metadata> {
 export default async function ShopifyAndWordPress() {
   const { lang, t } = await getDict();
   const { otherWorkServices, otherWorkProjects, profile } = getContent(lang);
+  const { wordpressSites } = getProjects(lang);
   return (
     <main>
       <div className="mx-auto max-w-[1080px] px-6 pt-12">
@@ -62,6 +65,16 @@ export default async function ShopifyAndWordPress() {
         <p className="eyebrow">{t.shopifyWp.eyebrow}</p>
         <h1 className="mt-2 text-3xl font-bold tracking-tight md:text-4xl">{t.shopifyWp.title}</h1>
         <p className="mt-3 max-w-2xl text-[15px] text-[var(--text-muted)]">{t.shopifyWp.lead}</p>
+      </section>
+
+      {/* Featured: every WordPress site, scrolling on desktop and mobile. */}
+      <section className="mx-auto max-w-[1080px] px-6 pb-20">
+        <p className="eyebrow">{t.projects.wpEyebrow}</p>
+        <h2 className="mt-2 text-2xl font-bold tracking-tight">{t.projects.wpTitle}</h2>
+        <p className="mt-3 max-w-2xl text-[15px] text-[var(--text-muted)]">{t.projects.wpLead}</p>
+        <div className="mt-8">
+          <Showcase sites={wordpressSites} labels={t.showcase} />
+        </div>
       </section>
 
       <section className="mx-auto max-w-[1080px] px-6 pb-16">

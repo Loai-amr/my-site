@@ -5,6 +5,8 @@ const links = {
   email: "loaiamr@gmail.com",
   linkedin: "https://linkedin.com/in/loai-amrr",
   github: "https://github.com/Loai-amr",
+  instagram: "https://www.instagram.com/loaiiiamr/",
+  tiktok: "https://www.tiktok.com/@loaiiamr",
   resumeHref: "/Loai_Amr_Frontend_Developer.pdf",
   ecommerceResumeHref: "/Loai_Amr_CV_Senior_Shopify_WordPress_Developer.pdf",
 };

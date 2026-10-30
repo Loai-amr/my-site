@@ -8,6 +8,7 @@ A frontend-focused portfolio site built with Next.js (App Router), TypeScript, a
 - `components/` — Nav, Hero, ExperienceSection, StackSection, ContactSection, ProjectCard, ServiceCard, CaseStudy, Footer
 - `lib/content.ts` — all content (experience, stack, projects, services) in English and Arabic — edit this file to update content
 - `lib/i18n.ts` — UI strings in English and Arabic; the language toggle stores the choice in a `lang` cookie (English by default, Arabic renders right-to-left)
+- `lib/projects.ts` — projects on the home page (ToolSwift case study, ONE MORE + Witan, client sites, WordPress sites) in English and Arabic; screenshots in `public/projects/<slug>-desktop.webp` / `-mobile.webp`, heights in `lib/shots.json`
 - `lib/theme.ts` + `components/ThemeToggle.tsx` — light/dark toggle; follows the system setting until the visitor picks one (saved in localStorage)
 - `public/` — headshot, favicons, résumé PDFs
 
