@@ -206,3 +206,209 @@ html {
     color: var(--accent-green);
   }
 }
+
+/* ─── Blog: rendered markdown (components/Markdown.tsx) ─────────────────────── */
+.blog-prose {
+  font-size: 17px;
+  line-height: 1.75;
+  overflow-wrap: break-word;
+}
+.blog-prose > * + * {
+  margin-top: 1.1em;
+}
+.blog-prose h2 {
+  margin-top: 1.8em;
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+}
+.blog-prose h3 {
+  margin-top: 1.5em;
+  font-size: 1.2rem;
+  font-weight: 650;
+  line-height: 1.35;
+}
+.blog-prose h2 + *,
+.blog-prose h3 + * {
+  margin-top: 0.6em;
+}
+.blog-prose p,
+.blog-prose li {
+  color: var(--text-muted);
+}
+.blog-prose strong {
+  color: var(--text);
+}
+.blog-prose a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.blog-prose ul,
+.blog-prose ol {
+  padding-inline-start: 1.4em;
+}
+.blog-prose ul {
+  list-style: disc;
+}
+.blog-prose ol {
+  list-style: decimal;
+}
+.blog-prose li + li {
+  margin-top: 0.35em;
+}
+.blog-prose blockquote {
+  border-inline-start: 3px solid var(--border-hover);
+  padding: 2px 16px;
+}
+.blog-prose :not(pre) > code {
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--bg-raised);
+  padding: 1px 6px;
+  font-family: var(--font-mono);
+  font-size: 0.86em;
+  color: var(--text);
+}
+.blog-prose pre {
+  overflow-x: auto;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg-raised);
+  padding: 16px;
+  font-size: 14px;
+  line-height: 1.6;
+}
+.blog-prose pre code {
+  font-family: var(--font-mono);
+  color: var(--text);
+}
+.blog-prose img {
+  height: auto;
+  border-radius: var(--radius);
+}
+.blog-prose table {
+  display: block;
+  overflow-x: auto;
+  border-collapse: collapse;
+  font-size: 15px;
+}
+.blog-prose th,
+.blog-prose td {
+  border: 1px solid var(--border);
+  padding: 8px 12px;
+  text-align: start;
+}
+.blog-prose hr {
+  border: 0;
+  border-top: 1px solid var(--border);
+}
+
+/* highlight.js tokens (rehype-highlight), coloured from the theme so light and dark both work. */
+.hljs-comment,
+.hljs-quote {
+  color: var(--text-dim);
+  font-style: italic;
+}
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-literal,
+.hljs-doctag,
+.hljs-meta .hljs-keyword {
+  color: #cf222e;
+}
+.hljs-string,
+.hljs-regexp,
+.hljs-meta .hljs-string {
+  color: #0a3069;
+}
+.hljs-title,
+.hljs-title.function_,
+.hljs-section {
+  color: #8250df;
+}
+.hljs-number,
+.hljs-attr,
+.hljs-attribute,
+.hljs-variable,
+.hljs-template-variable,
+.hljs-selector-class,
+.hljs-selector-id,
+.hljs-property {
+  color: #0550ae;
+}
+.hljs-built_in,
+.hljs-type,
+.hljs-title.class_,
+.hljs-name,
+.hljs-tag {
+  color: #116329;
+}
+.hljs-symbol,
+.hljs-bullet,
+.hljs-link,
+.hljs-meta {
+  color: #953800;
+}
+.hljs-addition {
+  color: #116329;
+  background: #dafbe1;
+}
+.hljs-deletion {
+  color: #82071e;
+  background: #ffebe9;
+}
+.hljs-emphasis {
+  font-style: italic;
+}
+.hljs-strong {
+  font-weight: 700;
+}
+:root[data-theme="dark"] .hljs-keyword,
+:root[data-theme="dark"] .hljs-selector-tag,
+:root[data-theme="dark"] .hljs-literal,
+:root[data-theme="dark"] .hljs-doctag,
+:root[data-theme="dark"] .hljs-meta .hljs-keyword {
+  color: #ff7b72;
+}
+:root[data-theme="dark"] .hljs-string,
+:root[data-theme="dark"] .hljs-regexp,
+:root[data-theme="dark"] .hljs-meta .hljs-string {
+  color: #a5d6ff;
+}
+:root[data-theme="dark"] .hljs-title,
+:root[data-theme="dark"] .hljs-title.function_,
+:root[data-theme="dark"] .hljs-section {
+  color: #d2a8ff;
+}
+:root[data-theme="dark"] .hljs-number,
+:root[data-theme="dark"] .hljs-attr,
+:root[data-theme="dark"] .hljs-attribute,
+:root[data-theme="dark"] .hljs-variable,
+:root[data-theme="dark"] .hljs-template-variable,
+:root[data-theme="dark"] .hljs-selector-class,
+:root[data-theme="dark"] .hljs-selector-id,
+:root[data-theme="dark"] .hljs-property {
+  color: #79c0ff;
+}
+:root[data-theme="dark"] .hljs-built_in,
+:root[data-theme="dark"] .hljs-type,
+:root[data-theme="dark"] .hljs-title.class_,
+:root[data-theme="dark"] .hljs-name,
+:root[data-theme="dark"] .hljs-tag {
+  color: #7ee787;
+}
+:root[data-theme="dark"] .hljs-symbol,
+:root[data-theme="dark"] .hljs-bullet,
+:root[data-theme="dark"] .hljs-link,
+:root[data-theme="dark"] .hljs-meta {
+  color: #ffa657;
+}
+:root[data-theme="dark"] .hljs-addition {
+  color: #aff5b4;
+  background: #033a16;
+}
+:root[data-theme="dark"] .hljs-deletion {
+  color: #ffdcd7;
+  background: #67060c;
+}

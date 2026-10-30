@@ -33,6 +33,9 @@ export default async function Nav() {
           <Link href="/free-apps" className="hidden hover:text-[var(--text)] min-[400px]:inline">
             {t.nav.freeApps}
           </Link>
+          <Link href="/blog" className="hover:text-[var(--text)]">
+            {t.nav.blog}
+          </Link>
           <a href="https://shop.loaiamr.com" className="text-[var(--accent-blue)] hover:text-[var(--text)]">
             {t.nav.shop} ↗&#xFE0E;
           </a>
