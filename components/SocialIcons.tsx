@@ -21,6 +21,12 @@ export const socialIcons = {
       <path d="M9 12a4 4 0 1 0 4 4V3c0 2.8 2.2 5 5 5" />
     </svg>
   ),
+  whatsapp: (
+    <svg aria-hidden viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z" />
+      <path d="M9 10.2c0 2.5 2.3 4.8 4.8 4.8l1.2-1.2-1.6-1-.9.7a3.2 3.2 0 0 1-2-2l.7-.9-1-1.6z" />
+    </svg>
+  ),
 };
 
 /** Social icon links (Instagram + TikTok by default). `size="lg"` matches the contact section's buttons. */
