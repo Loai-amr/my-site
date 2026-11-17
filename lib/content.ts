@@ -7,6 +7,7 @@ const links = {
   github: "https://github.com/Loai-amr",
   instagram: "https://www.instagram.com/loaiiiamr/",
   tiktok: "https://www.tiktok.com/@loaiiamr",
+  whatsapp: "https://wa.me/loaiamr",
   resumeHref: "/Loai_Amr_Frontend_Developer.pdf",
   ecommerceResumeHref: "/Loai_Amr_CV_Senior_Shopify_WordPress_Developer.pdf",
 };

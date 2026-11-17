@@ -23,7 +23,7 @@ export default async function ContactSection() {
           {t.nav.resume}
         </a>
         <div className="flex gap-3">
-          <SocialIcons size="lg" networks={["linkedin", "instagram", "tiktok"]} />
+          <SocialIcons size="lg" networks={["whatsapp", "linkedin", "instagram", "tiktok"]} />
         </div>
       </div>
     </section>
