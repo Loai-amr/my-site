@@ -1,7 +1,7 @@
 import { getContent } from "@/lib/content";
 import { getDict } from "@/lib/i18n";
 
-const icons = {
+export const socialIcons = {
   linkedin: (
     <svg aria-hidden viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
       <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z" />
@@ -29,7 +29,7 @@ export default async function SocialIcons({
   networks = ["instagram", "tiktok"],
 }: {
   size?: "sm" | "lg";
-  networks?: (keyof typeof icons)[];
+  networks?: (keyof typeof socialIcons)[];
 }) {
   const { lang, t } = await getDict();
   const { profile } = getContent(lang);
@@ -46,7 +46,7 @@ export default async function SocialIcons({
           title={t.social[key]}
           className={`grid ${box} shrink-0 place-items-center rounded-[var(--radius)] border border-[var(--border)] text-[var(--text)] hover:border-[var(--border-hover)] hover:bg-[var(--bg-raised)]`}
         >
-          {icons[key]}
+          {socialIcons[key]}
         </a>
       ))}
     </>

@@ -2,6 +2,7 @@ import Hero from "@/components/Hero";
 import ProjectsSection from "@/components/ProjectsSection";
 import ExperienceSection from "@/components/ExperienceSection";
 import StackSection from "@/components/StackSection";
+import FollowSection from "@/components/FollowSection";
 import ContactSection from "@/components/ContactSection";
 
 export default function Home() {
@@ -11,6 +12,7 @@ export default function Home() {
       <ProjectsSection />
       <ExperienceSection />
       <StackSection />
+      <FollowSection />
       <ContactSection />
     </main>
   );

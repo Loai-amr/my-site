@@ -79,6 +79,14 @@ const en = {
   },
   experience: { eyebrow: "Experience", title: "Where I've shipped React & Next.js." },
   stack: { eyebrow: "Tools", title: "What I actually ship with.", education: "Education" },
+  follow: {
+    eyebrow: "Follow along",
+    title: "Behind the builds.",
+    lead: "Short videos and posts on what I'm building with React, Next.js and AI tools.",
+    instagram: "Posts, reels and project snippets.",
+    tiktok: "Quick dev tips and build videos.",
+    cta: "Follow",
+  },
   contact: {
     eyebrow: "Get in touch",
     title: "Building a React or Next.js product?",
@@ -217,6 +225,14 @@ const ar: typeof en = {
   },
   experience: { eyebrow: "الخبرات", title: "أين أطلقت مشاريع React و Next.js." },
   stack: { eyebrow: "الأدوات", title: "الأدوات التي أعمل بها فعلًا.", education: "التعليم" },
+  follow: {
+    eyebrow: "تابعني",
+    title: "كواليس المشاريع.",
+    lead: "فيديوهات ومنشورات قصيرة عن ما أبنيه بـ React و Next.js وأدوات الذكاء الاصطناعي.",
+    instagram: "منشورات وريلز ولقطات من المشاريع.",
+    tiktok: "نصائح برمجية سريعة وفيديوهات بناء.",
+    cta: "متابعة",
+  },
   contact: {
     eyebrow: "تواصل معي",
     title: "تبني منتجًا بـ React أو Next.js؟",
