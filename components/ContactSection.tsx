@@ -7,12 +7,12 @@ export default async function ContactSection() {
   const { profile } = getContent(lang);
   return (
     <section id="contact" className="mx-auto max-w-[1080px] px-6 py-20">
-      <div className="mb-8">
+      <div className="mb-8 text-center">
         <p className="eyebrow">{t.contact.eyebrow}</p>
         <h2 className="mt-2 text-3xl font-bold tracking-tight">{t.contact.title}</h2>
-        <p className="mt-3 max-w-xl text-[15px] text-[var(--text-muted)]">{t.contact.lead}</p>
+        <p className="mx-auto mt-3 max-w-xl text-[15px] text-[var(--text-muted)]">{t.contact.lead}</p>
       </div>
-      <div className="flex flex-wrap gap-3">
+      <div className="flex flex-wrap justify-center gap-3">
         <a href={`mailto:${profile.email}`} className="btn-primary">
           {profile.email}
         </a>
